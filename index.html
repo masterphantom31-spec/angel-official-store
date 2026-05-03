@@ -20,11 +20,11 @@
             text-align: center;
         }
 
-        /* FIXED HEADER & LOGO */
+        /* HEADER */
         header {
             padding: 20px;
             display: flex;
-            justify-content: flex-start; /* Keeps menu and logo aligned */
+            justify-content: flex-start;
             align-items: center;
             background: #000;
             position: sticky;
@@ -34,7 +34,7 @@
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 900;
             color: var(--primary-pink);
             text-transform: uppercase;
@@ -42,9 +42,23 @@
             margin-left: 20px;
         }
 
-        /* HAMBURGER MENU WITH SHADOW */
+        /* MENU LOGIC */
         #menu-toggle { display: none; }
         .menu-icon { font-size: 35px; cursor: pointer; color: var(--primary-pink); z-index: 1001; }
+
+        /* THE INVISIBLE CLICKABLE OVERLAY */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dims the background */
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 1500;
+        }
 
         .nav-menu {
             position: fixed;
@@ -54,13 +68,12 @@
             max-width: 300px;
             height: 100%;
             background: #000;
-            transition: 0.4s ease-in-out;
-            z-index: 2000; /* High z-index to stay on TOP */
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2000;
             padding-top: 100px;
             text-align: left;
             border-right: 2px solid var(--primary-pink);
-            /* ADDED DARK SHADOW */
-            box-shadow: 10px 0 30px rgba(0, 0, 0, 0.9), 5px 0 15px rgba(255, 0, 127, 0.2);
+            box-shadow: 10px 0 30px rgba(0, 0, 0, 0.9);
         }
 
         .nav-menu a {
@@ -74,13 +87,16 @@
             border-bottom: 1px solid #111;
         }
 
-        /* OVERLAY - DARKENS BACKGROUND WHEN MENU OPEN */
+        /* WHEN CHECKED: SHOW MENU AND OVERLAY */
         #menu-toggle:checked ~ .nav-menu { left: 0; }
+        #menu-toggle:checked ~ .menu-overlay { 
+            visibility: visible; 
+            opacity: 1; 
+        }
 
         /* GRID & CARDS */
         .section-title { text-align: left; padding: 20px; font-size: 24px; font-weight: 800; }
-
-        .featured-container { display: flex; overflow-x: auto; gap: 15px; padding: 0 20px 20px; }
+        .featured-container { display: flex; overflow-x: auto; gap: 15px; padding: 0 20px 20px; scrollbar-width: none; }
         .offer-card { 
             min-width: 220px; 
             background: #111; 
@@ -90,22 +106,22 @@
             text-align: left;
             position: relative;
         }
-
         .hot-tag { background: var(--primary-pink); color: black; font-size: 12px; font-weight: bold; padding: 3px 10px; border-radius: 5px; position: absolute; top: 10px; right: 10px; }
-
         .game-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 20px; }
         .game-card { background: var(--card-bg); border-radius: 20px; padding: 12px; border: 1px solid #222; text-decoration: none; color: white; }
         .game-img { width: 100%; aspect-ratio: 1/1; background: #333; border-radius: 15px; margin-bottom: 10px; }
         .game-name { font-size: 16px; font-weight: 800; }
         .game-category { font-size: 11px; color: var(--primary-pink); font-weight: bold; text-transform: uppercase; }
-
-        .btn-main { background: var(--primary-pink); color: black; border: none; padding: 14px; border-radius: 12px; font-weight: 900; width: 100%; margin-top: 15px; cursor: pointer; }
+        .btn-main { background: var(--primary-pink); color: black; border: none; padding: 14px; border-radius: 12px; font-weight: 900; width: 100%; margin-top: 15px; }
     </style>
 </head>
 <body>
 
+    <input type="checkbox" id="menu-toggle">
+
+    <label for="menu-toggle" class="menu-overlay"></label>
+
     <header>
-        <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">&#9776;</label>
         <a href="#" class="logo">Angel Official Store</a>
         
@@ -137,26 +153,26 @@
     <div class="section-title">Select Game</div>
 
     <div class="game-grid">
-        <a href="#" class="game-card">
+        <div class="game-card">
             <div class="game-img"></div>
             <div class="game-name">Mobile Legends</div>
             <div class="game-category">MOBA</div>
-        </a>
-        <a href="#" class="game-card">
+        </div>
+        <div class="game-card">
             <div class="game-img"></div>
             <div class="game-name">BGMI</div>
             <div class="game-category">FPS</div>
-        </a>
-        <a href="#" class="game-card">
+        </div>
+        <div class="game-card">
             <div class="game-img"></div>
             <div class="game-name">Free Fire</div>
             <div class="game-category">FPS</div>
-        </a>
-        <a href="#" class="game-card">
+        </div>
+        <div class="game-card">
             <div class="game-img"></div>
             <div class="game-name">Honor of Kings</div>
             <div class="game-category">MOBA</div>
-        </a>
+        </div>
     </div>
 
 </body>
