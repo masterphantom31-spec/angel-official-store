@@ -1,141 +1,237 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angel Official Store</title>
+    <title>Angel Official Store | Top-up Center</title>
     <style>
-        /* GLOBAL STYLES */
+        :root {
+            --primary-pink: #ff007f;
+            --dark-bg: #0a0a0a;
+            --card-bg: #161616;
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
+        }
+
         body {
-            background-color: #000000; /* Deep black background */
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
+            text-align: center;
             overflow-x: hidden;
         }
 
-        /* THE TITLE - MASSIVE & BOLD */
-        .store-title {
-            color: #ff007f; /* Your signature neon pink */
-            font-size: 55px;
+        /* HEADER SECTION */
+        header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 24px;
             font-weight: 900;
+            color: var(--primary-pink);
             text-transform: uppercase;
-            margin-top: 100px;
-            letter-spacing: 3px;
-            text-shadow: 0 0 20px rgba(255, 0, 127, 0.7);
+            text-decoration: none;
         }
 
-        /* HAMBURGER MENU ICON */
+        /* HAMBURGER MENU */
         #menu-toggle { display: none; }
-        .menu-icon {
-            font-size: 50px;
-            cursor: pointer;
-            position: fixed;
-            top: 25px;
-            left: 25px;
-            z-index: 100;
-            color: #ff007f;
-            text-shadow: 0 0 15px #ff007f;
-        }
+        .menu-icon { font-size: 30px; cursor: pointer; color: var(--primary-pink); }
 
-        /* SLIDE-OUT MENU CONTAINER */
         .nav-menu {
             position: fixed;
             top: 0;
-            left: -320px; /* Fully hidden */
-            width: 320px;
+            left: -100%;
+            width: 80%;
+            max-width: 300px;
             height: 100%;
-            background: #000000;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            padding-top: 100px;
+            background: var(--dark-bg);
+            transition: 0.4s;
+            z-index: 999;
+            padding-top: 80px;
             text-align: left;
-            z-index: 99;
-            border-right: 3px solid #ff007f;
+            border-right: 2px solid var(--primary-pink);
         }
 
-        /* MENU LINKS - BIG & BOLD */
         .nav-menu a {
             display: block;
-            padding: 25px 35px;
+            padding: 20px 30px;
             color: white;
             text-decoration: none;
-            font-size: 28px;
-            font-weight: 800;
-            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: bold;
             border-bottom: 1px solid #1a1a1a;
+        }
+
+        #menu-toggle:checked ~ .nav-menu { left: 0; }
+
+        /* FEATURED OFFERS SECTION */
+        .section-title {
+            text-align: left;
+            padding: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--text-main);
+        }
+
+        .featured-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding: 0 20px 20px 20px;
+            scrollbar-width: none; /* Hides scrollbar on Firefox */
+        }
+
+        .offer-card {
+            min-width: 200px;
+            background: linear-gradient(145deg, #1e1e1e, #111);
+            border-radius: 15px;
+            padding: 15px;
+            border: 1px solid #333;
+            text-align: left;
+            position: relative;
+        }
+
+        .hot-tag {
+            background: var(--primary-pink);
+            color: black;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 5px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        /* GAME SELECTION GRID */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 10px;
+            border: 1px solid #222;
             transition: 0.3s;
+            text-decoration: none;
+            color: white;
         }
 
-        .nav-menu a:hover {
-            background: #ff007f;
-            color: #000;
+        .game-card:hover {
+            border-color: var(--primary-pink);
+            transform: translateY(-5px);
         }
 
-        /* MENU OPEN LOGIC */
-        #menu-toggle:checked ~ .nav-menu {
-            left: 0;
+        .game-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #333;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 10px;
         }
 
-        /* PRODUCT BOXES - LARGE & PREMIUM */
-        .product-box {
-            border: 3px solid #ff007f;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 60px 20px; /* Very tall and spacious */
-            margin: 40px auto;
-            width: 85%;
-            max-width: 500px;
-            border-radius: 30px;
-            box-shadow: 0 0 25px rgba(255, 0, 127, 0.2);
-            transition: 0.3s;
+        .game-name {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
-        .product-box:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 40px rgba(255, 0, 127, 0.4);
+        .game-category {
+            font-size: 12px;
+            color: var(--primary-pink);
+            text-transform: uppercase;
+            font-weight: bold;
         }
 
-        .product-box h2 {
-            font-size: 40px; /* Massive product names */
-            margin-bottom: 15px;
-            font-weight: 800;
+        /* CUSTOM BUTTON */
+        .btn-main {
+            background: var(--primary-pink);
+            color: black;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 10px;
         }
-
-        .product-box p {
-            font-size: 26px; /* Clear pricing/info */
-            color: #cccccc;
-            margin: 0;
-        }
-
     </style>
 </head>
 <body>
 
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <header>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <a href="#" class="logo">Angel Store</a>
+        <div style="width: 30px;"></div> <nav class="nav-menu">
+            <a href="#">Home</a>
+            <a href="#">My Orders</a>
+            <a href="#">Support</a>
+            <a href="#">Terms</a>
+        </nav>
+    </header>
 
-    <nav class="nav-menu">
-        <a href="#">Home</a>
-        <a href="#">Games Top-up</a>
-        <a href="#">Game Plays</a>
-        <a href="#">Social Media</a>
-        <a href="#">About Angel</a>
-    </nav>
-
-    <h1 class="store-title">Angel Official</h1>
-
-    <div class="product-box">
-        <h2>MLBB DIAMONDS</h2>
-        <p>Instant Delivery</p>
-        <p style="color: #ff007f; font-weight: bold; margin-top: 15px;">STARTING AT ₹99</p>
+    <div class="section-title">Featured Offers</div>
+    
+    <div class="featured-container">
+        <div class="offer-card">
+            <span class="hot-tag">HOT</span>
+            <div style="font-size: 14px; color: var(--text-dim);">Weekly Pass</div>
+            <div style="font-size: 18px; font-weight: bold; margin: 5px 0;">INR 150</div>
+            <button class="btn-main">Buy Now</button>
+        </div>
+        <div class="offer-card">
+            <span class="hot-tag">HOT</span>
+            <div style="font-size: 14px; color: var(--text-dim);">60 UC</div>
+            <div style="font-size: 18px; font-weight: bold; margin: 5px 0;">INR 80</div>
+            <button class="btn-main">Buy Now</button>
+        </div>
     </div>
 
-    <div class="product-box">
-        <h2>PREMIUM SUBS</h2>
-        <p>100% Safe & Official</p>
+    <div class="section-title">Select Game</div>
+
+    <div class="game-grid">
+        <a href="#" class="game-card">
+            <div class="game-img" style="background-image: url('https://via.placeholder.com/150'); background-size: cover;"></div>
+            <div class="game-name">Mobile Legends</div>
+            <div class="game-category">MOBA</div>
+        </a>
+
+        <a href="#" class="game-card">
+            <div class="game-img" style="background-image: url('https://via.placeholder.com/150'); background-size: cover;"></div>
+            <div class="game-name">BGMI</div>
+            <div class="game-category">FPS</div>
+        </a>
+
+        <a href="#" class="game-card">
+            <div class="game-img" style="background-image: url('https://via.placeholder.com/150'); background-size: cover;"></div>
+            <div class="game-name">Free Fire</div>
+            <div class="game-category">FPS</div>
+        </a>
+
+        <a href="#" class="game-card">
+            <div class="game-img" style="background-image: url('https://via.placeholder.com/150'); background-size: cover;"></div>
+            <div class="game-name">Honor of Kings</div>
+            <div class="game-category">MOBA</div>
+        </a>
     </div>
 
 </body>
 </html>
+
