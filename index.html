@@ -5,125 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angel Official Store</title>
     <style>
+        /* COLOR THEMES */
         :root {
-            --primary-pink: #ff007f;
-            --dark-bg: #000000;
-            --card-bg: #111111;
+            --pink: #ff007f;
+            --bg: #000000;
+            --card: #111111;
         }
 
         body {
-            background-color: var(--dark-bg);
+            background-color: var(--bg);
             color: #ffffff;
-            font-family: 'Inter', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
         }
 
+        /* HEADER */
         header {
             padding: 15px 20px;
             display: flex;
-            justify-content: flex-start;
             align-items: center;
             background: #000;
+            border-bottom: 1px solid #222;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #222;
+            z-index: 100;
         }
 
         .logo {
             font-size: 18px;
-            font-weight: 900;
-            color: var(--primary-pink);
+            font-weight: bold;
+            color: var(--pink);
             text-transform: uppercase;
             text-decoration: none;
             margin-left: 15px;
         }
 
-        /* MENU LOGIC */
+        /* HAMBURGER BUTTON */
         #menu-toggle { display: none; }
         
         .menu-icon { 
             font-size: 30px; 
             cursor: pointer; 
-            color: var(--primary-pink); 
-            z-index: 3000; 
-            position: relative;
+            color: var(--pink); 
+            display: block;
         }
 
-        /* OVERLAY */
-        .menu-overlay {
+        /* THE SLIDE-OUT MENU */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: -100%; /* Hidden by default */
+            width: 280px;
+            height: 100%;
+            background-color: #000000; /* Solid Black */
+            border-right: 2px solid var(--pink);
+            transition: 0.3s;
+            z-index: 9999; /* Forces it to the VERY top layer */
+            padding-top: 60px;
+        }
+
+        /* THE LINKS INSIDE (The part that was blank) */
+        .nav-menu a {
+            display: block;
+            padding: 20px 30px;
+            color: #ffffff !important; /* Force White */
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 1px solid #222;
+        }
+
+        /* SHOW MENU WHEN CLICKED */
+        #menu-toggle:checked ~ .nav-menu {
+            left: 0;
+        }
+
+        /* CLOSE OVERLAY */
+        .menu-close-area {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            visibility: hidden;
-            opacity: 0;
-            transition: 0.3s;
-            z-index: 1500;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            z-index: 500;
         }
 
-        /* FIXED NAV MENU */
-        .nav-menu {
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 75%;
-            max-width: 280px;
-            height: 100%;
-            background: #000000;
-            transition: 0.4s ease;
-            z-index: 2000; /* Stays above overlay */
-            padding-top: 80px;
-            text-align: left;
-            border-right: 2px solid var(--primary-pink);
-            display: flex; /* Ensures items are aligned */
-            flex-direction: column;
-        }
-
-        .nav-menu a {
+        #menu-toggle:checked ~ .menu-close-area {
             display: block;
-            padding: 18px 25px;
-            color: #ffffff !important; /* Forces white color */
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: 800;
-            text-transform: uppercase;
-            border-bottom: 1px solid #1a1a1a;
-            z-index: 2100; /* Forces text to the front */
         }
 
-        .nav-menu a:hover {
-            color: var(--primary-pink) !important;
-        }
-
-        /* TOGGLE STATES */
-        #menu-toggle:checked ~ .nav-menu { left: 0; }
-        #menu-toggle:checked ~ .menu-overlay { 
-            visibility: visible; 
-            opacity: 1; 
-        }
-
-        /* GRID & CONTENT */
-        .section-title { text-align: left; padding: 20px; font-size: 22px; font-weight: 800; }
-        .featured-container { display: flex; overflow-x: auto; gap: 12px; padding: 0 20px 20px; scrollbar-width: none; }
-        .offer-card { min-width: 200px; background: #0f0f0f; border-radius: 15px; padding: 15px; border: 1px solid #222; text-align: left; position: relative; }
-        .hot-tag { background: var(--primary-pink); color: black; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; position: absolute; top: 10px; right: 10px; }
+        /* GRID CONTENT */
+        .section-title { text-align: left; padding: 20px; font-size: 22px; font-weight: bold; }
+        .featured-container { display: flex; overflow-x: auto; gap: 12px; padding: 0 20px 20px; }
+        .offer-card { min-width: 200px; background: #0f0f0f; border-radius: 15px; padding: 15px; border: 1px solid #222; text-align: left; }
         .game-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 15px; }
-        .game-card { background: var(--card-bg); border-radius: 15px; padding: 10px; border: 1px solid #222; text-decoration: none; color: white; }
+        .game-card { background: var(--card); border-radius: 15px; padding: 10px; border: 1px solid #222; }
         .game-img { width: 100%; aspect-ratio: 1/1; background: #222; border-radius: 10px; margin-bottom: 8px; }
-        .game-name { font-size: 14px; font-weight: 800; }
-        .game-category { font-size: 10px; color: var(--primary-pink); font-weight: bold; text-transform: uppercase; }
-        .btn-main { background: var(--primary-pink); color: black; border: none; padding: 12px; border-radius: 10px; font-weight: 900; width: 100%; margin-top: 10px; cursor: pointer; }
+        .btn-main { background: var(--pink); color: black; border: none; padding: 12px; border-radius: 10px; font-weight: bold; width: 100%; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="menu-overlay"></label>
+    <label for="menu-toggle" class="menu-close-area"></label>
 
     <header>
         <label for="menu-toggle" class="menu-icon">&#9776;</label>
@@ -140,41 +128,23 @@
     <div class="section-title">Featured Offers</div>
     <div class="featured-container">
         <div class="offer-card">
-            <span class="hot-tag">HOT</span>
             <div style="color: #777; font-size: 13px;">Weekly Pass</div>
-            <div style="font-size: 18px; font-weight: 900; margin: 8px 0;">INR 150</div>
+            <div style="font-size: 18px; font-weight: bold; margin: 8px 0;">INR 150</div>
             <button class="btn-main">BUY NOW</button>
         </div>
         <div class="offer-card">
-            <span class="hot-tag">HOT</span>
             <div style="color: #777; font-size: 13px;">60 UC</div>
-            <div style="font-size: 18px; font-weight: 900; margin: 8px 0;">INR 80</div>
+            <div style="font-size: 18px; font-weight: bold; margin: 8px 0;">INR 80</div>
             <button class="btn-main">BUY NOW</button>
         </div>
     </div>
 
     <div class="section-title">Select Game</div>
     <div class="game-grid">
-        <div class="game-card">
-            <div class="game-img"></div>
-            <div class="game-name">Mobile Legends</div>
-            <div class="game-category">MOBA</div>
-        </div>
-        <div class="game-card">
-            <div class="game-img"></div>
-            <div class="game-name">BGMI</div>
-            <div class="game-category">FPS</div>
-        </div>
-        <div class="game-card">
-            <div class="game-img"></div>
-            <div class="game-name">Free Fire</div>
-            <div class="game-category">FPS</div>
-        </div>
-        <div class="game-card">
-            <div class="game-img"></div>
-            <div class="game-name">Honor of Kings</div>
-            <div class="game-category">MOBA</div>
-        </div>
+        <div class="game-card"><div class="game-img"></div><strong>Mobile Legends</strong></div>
+        <div class="game-card"><div class="game-img"></div><strong>BGMI</strong></div>
+        <div class="game-card"><div class="game-img"></div><strong>Free Fire</strong></div>
+        <div class="game-card"><div class="game-img"></div><strong>Honor of Kings</strong></div>
     </div>
 
 </body>
