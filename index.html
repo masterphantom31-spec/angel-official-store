@@ -31,15 +31,7 @@
         }
         /* Hamburger Menu Styling */
 #menu-toggle { display: none; }
-.menu-icon {
-    font-size: 30px;
-    cursor: pointer;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 100;
-    color: #ff007f;
-}
+
 .nav-menu {
     position: fixed;
     top: 0;
@@ -47,7 +39,16 @@
     width: 250px;
     height: 100%;
     background: #111;
-    transition: 0.3s;
+    transition: 0.menu-icon {
+    font-size: 50px; /* Much bigger icon */
+    cursor: pointer;
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    z-index: 100;
+    color: #ff007f;
+    text-shadow: 0 0 15px #ff007f; /* Makes the menu icon glow neon! */
+}.3s;
     padding-top: 80px;
     text-align: left;
     z-index: 99;
@@ -55,15 +56,20 @@
 }
 .nav-menu a {
     display: block;
-    padding: 15px 25px;
+    padding: 25px 30px;
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 32px; /* Large, readable font size */
+    font-weight: 800; /* Extra bold like Mikami Store */
+    text-transform: uppercase; /* All caps for that premium look */
     border-bottom: 1px solid #222;
+    transition: 0.3s;
 }
+
 .nav-menu a:hover {
     background: #ff007f;
     color: black;
+}
 }
 #menu-toggle:checked ~ .nav-menu {
     left: 0;
