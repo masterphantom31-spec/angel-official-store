@@ -3,34 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angel Official Store | Top-up Center</title>
+    <title>Angel Official Store</title>
     <style>
         :root {
             --primary-pink: #ff007f;
             --dark-bg: #0a0a0a;
             --card-bg: #161616;
-            --text-main: #ffffff;
-            --text-dim: #a0a0a0;
         }
 
         body {
             background-color: var(--dark-bg);
-            color: var(--text-main);
+            color: #ffffff;
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
-            overflow-x: hidden;
         }
 
-        /* HEADER SECTION */
+        /* FIXED HEADER & LOGO */
         header {
             padding: 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start; /* Keeps menu and logo aligned */
             align-items: center;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
+            background: #000;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -38,16 +34,17 @@
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 900;
             color: var(--primary-pink);
             text-transform: uppercase;
             text-decoration: none;
+            margin-left: 20px;
         }
 
-        /* HAMBURGER MENU */
+        /* HAMBURGER MENU WITH SHADOW */
         #menu-toggle { display: none; }
-        .menu-icon { font-size: 30px; cursor: pointer; color: var(--primary-pink); }
+        .menu-icon { font-size: 35px; cursor: pointer; color: var(--primary-pink); z-index: 1001; }
 
         .nav-menu {
             position: fixed;
@@ -56,12 +53,14 @@
             width: 80%;
             max-width: 300px;
             height: 100%;
-            background: var(--dark-bg);
-            transition: 0.4s;
-            z-index: 999;
-            padding-top: 80px;
+            background: #000;
+            transition: 0.4s ease-in-out;
+            z-index: 2000; /* High z-index to stay on TOP */
+            padding-top: 100px;
             text-align: left;
             border-right: 2px solid var(--primary-pink);
+            /* ADDED DARK SHADOW */
+            box-shadow: 10px 0 30px rgba(0, 0, 0, 0.9), 5px 0 15px rgba(255, 0, 127, 0.2);
         }
 
         .nav-menu a {
@@ -69,108 +68,38 @@
             padding: 20px 30px;
             color: white;
             text-decoration: none;
-            font-size: 20px;
-            font-weight: bold;
-            border-bottom: 1px solid #1a1a1a;
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-bottom: 1px solid #111;
         }
 
+        /* OVERLAY - DARKENS BACKGROUND WHEN MENU OPEN */
         #menu-toggle:checked ~ .nav-menu { left: 0; }
 
-        /* FEATURED OFFERS SECTION */
-        .section-title {
-            text-align: left;
-            padding: 20px;
-            font-size: 22px;
-            font-weight: bold;
-            color: var(--text-main);
-        }
+        /* GRID & CARDS */
+        .section-title { text-align: left; padding: 20px; font-size: 24px; font-weight: 800; }
 
-        .featured-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 15px;
-            padding: 0 20px 20px 20px;
-            scrollbar-width: none; /* Hides scrollbar on Firefox */
-        }
-
-        .offer-card {
-            min-width: 200px;
-            background: linear-gradient(145deg, #1e1e1e, #111);
-            border-radius: 15px;
-            padding: 15px;
-            border: 1px solid #333;
+        .featured-container { display: flex; overflow-x: auto; gap: 15px; padding: 0 20px 20px; }
+        .offer-card { 
+            min-width: 220px; 
+            background: #111; 
+            border-radius: 20px; 
+            padding: 20px; 
+            border: 1px solid #333; 
             text-align: left;
             position: relative;
         }
 
-        .hot-tag {
-            background: var(--primary-pink);
-            color: black;
-            font-size: 12px;
-            font-weight: bold;
-            padding: 2px 8px;
-            border-radius: 5px;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
+        .hot-tag { background: var(--primary-pink); color: black; font-size: 12px; font-weight: bold; padding: 3px 10px; border-radius: 5px; position: absolute; top: 10px; right: 10px; }
 
-        /* GAME SELECTION GRID */
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            padding: 20px;
-        }
+        .game-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 20px; }
+        .game-card { background: var(--card-bg); border-radius: 20px; padding: 12px; border: 1px solid #222; text-decoration: none; color: white; }
+        .game-img { width: 100%; aspect-ratio: 1/1; background: #333; border-radius: 15px; margin-bottom: 10px; }
+        .game-name { font-size: 16px; font-weight: 800; }
+        .game-category { font-size: 11px; color: var(--primary-pink); font-weight: bold; text-transform: uppercase; }
 
-        .game-card {
-            background: var(--card-bg);
-            border-radius: 18px;
-            padding: 10px;
-            border: 1px solid #222;
-            transition: 0.3s;
-            text-decoration: none;
-            color: white;
-        }
-
-        .game-card:hover {
-            border-color: var(--primary-pink);
-            transform: translateY(-5px);
-        }
-
-        .game-img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background: #333;
-            border-radius: 12px;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
-
-        .game-name {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .game-category {
-            font-size: 12px;
-            color: var(--primary-pink);
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-
-        /* CUSTOM BUTTON */
-        .btn-main {
-            background: var(--primary-pink);
-            color: black;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            width: 100%;
-            margin-top: 10px;
-        }
+        .btn-main { background: var(--primary-pink); color: black; border: none; padding: 14px; border-radius: 12px; font-weight: 900; width: 100%; margin-top: 15px; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -178,12 +107,13 @@
     <header>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">&#9776;</label>
-        <a href="#" class="logo">Angel Store</a>
-        <div style="width: 30px;"></div> <nav class="nav-menu">
+        <a href="#" class="logo">Angel Official Store</a>
+        
+        <nav class="nav-menu">
             <a href="#">Home</a>
             <a href="#">My Orders</a>
             <a href="#">Support</a>
-            <a href="#">Terms</a>
+            <a href="#">Terms & Conditions</a>
         </nav>
     </header>
 
@@ -192,15 +122,15 @@
     <div class="featured-container">
         <div class="offer-card">
             <span class="hot-tag">HOT</span>
-            <div style="font-size: 14px; color: var(--text-dim);">Weekly Pass</div>
-            <div style="font-size: 18px; font-weight: bold; margin: 5px 0;">INR 150</div>
-            <button class="btn-main">Buy Now</button>
+            <div style="color: #888; font-size: 14px;">Weekly Pass</div>
+            <div style="font-size: 22px; font-weight: 900; margin: 10px 0;">INR 150</div>
+            <button class="btn-main">BUY NOW</button>
         </div>
         <div class="offer-card">
             <span class="hot-tag">HOT</span>
-            <div style="font-size: 14px; color: var(--text-dim);">60 UC</div>
-            <div style="font-size: 18px; font-weight: bold; margin: 5px 0;">INR 80</div>
-            <button class="btn-main">Buy Now</button>
+            <div style="color: #888; font-size: 14px;">60 UC</div>
+            <div style="font-size: 22px; font-weight: 900; margin: 10px 0;">INR 80</div>
+            <button class="btn-main">BUY NOW</button>
         </div>
     </div>
 
@@ -208,25 +138,22 @@
 
     <div class="game-grid">
         <a href="#" class="game-card">
-            <div class="game-img" style="background-image: url('https://via.placeholder.com/150'); background-size: cover;"></div>
+            <div class="game-img"></div>
             <div class="game-name">Mobile Legends</div>
             <div class="game-category">MOBA</div>
         </a>
-
         <a href="#" class="game-card">
-            <div class="game-img" style="background-image: url('https://via.placeholder.com/150'); background-size: cover;"></div>
+            <div class="game-img"></div>
             <div class="game-name">BGMI</div>
             <div class="game-category">FPS</div>
         </a>
-
         <a href="#" class="game-card">
-            <div class="game-img" style="background-image: url('https://via.placeholder.com/150'); background-size: cover;"></div>
+            <div class="game-img"></div>
             <div class="game-name">Free Fire</div>
             <div class="game-category">FPS</div>
         </a>
-
         <a href="#" class="game-card">
-            <div class="game-img" style="background-image: url('https://via.placeholder.com/150'); background-size: cover;"></div>
+            <div class="game-img"></div>
             <div class="game-name">Honor of Kings</div>
             <div class="game-category">MOBA</div>
         </a>
@@ -234,4 +161,3 @@
 
 </body>
 </html>
-
