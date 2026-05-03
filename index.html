@@ -25,9 +25,58 @@
             width: 300px;
             border-radius: 10px;
         }
+        /* Hamburger Menu Styling */
+#menu-toggle { display: none; }
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    color: #ff007f;
+}
+.nav-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #111;
+    transition: 0.3s;
+    padding-top: 80px;
+    text-align: left;
+    z-index: 99;
+    border-right: 2px solid #ff007f;
+}
+.nav-menu a {
+    display: block;
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-bottom: 1px solid #222;
+}
+.nav-menu a:hover {
+    background: #ff007f;
+    color: black;
+}
+#menu-toggle:checked ~ .nav-menu {
+    left: 0;
+}
     </style>
 </head>
 <body>
+ <input type="checkbox" id="menu-toggle">
+<label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+<nav class="nav-menu">
+    <a href="#">Home</a>
+    <a href="#">Games Top-up</a>
+    <a href="#">Game Plays</a>
+    <a href="#">Social Media Posting</a>
+    <a href="#">About Angel Store</a>
+</nav>   
 
     <h1 class="store-title">Welcome to Angel Official Store</h1>
     <p>Premium digital products and top-ups.</p>
