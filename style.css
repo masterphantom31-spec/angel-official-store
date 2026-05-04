@@ -318,3 +318,66 @@ h2 {
     color: #00ffcc;
     box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
 }
+
+/* --- Payment Page Styles --- */
+.summary-card {
+    background: rgba(0, 255, 204, 0.05);
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.summary-card p {
+    font-size: 16px;
+    color: #e2e8f0;
+}
+
+.summary-card h3 {
+    color: #00ffcc;
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.qr-container {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#payment-qr {
+    max-width: 200px;
+    width: 100%;
+    border-radius: 10px;
+    border: 3px solid #00ffcc;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+    margin: 15px 0;
+}
+
+#paid-btn {
+    background: linear-gradient(45deg, #ffaa00, #ff8800);
+    color: #000;
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 170, 0, 0.3);
+    transition: 0.3s;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+#paid-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 170, 0, 0.5);
+}
