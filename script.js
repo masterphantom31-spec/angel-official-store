@@ -2,12 +2,12 @@
 const hamburgerIcon = document.getElementById('hamburger-icon');
 const sideMenu = document.getElementById('side-menu');
 
+// Opens the menu
 hamburgerIcon.addEventListener('click', () => {
-    // Toggles the 'active' class which slides the menu in and out via CSS
     sideMenu.classList.toggle('active');
 });
 
-// Close the menu if the user clicks outside of it
+// Closes the menu if the user taps anywhere outside of it
 document.addEventListener('click', (event) => {
     if (!sideMenu.contains(event.target) && event.target !== hamburgerIcon) {
         sideMenu.classList.remove('active');
@@ -22,39 +22,58 @@ let currentIndex = 0;
 const totalSlides = slides.length;
 
 function moveSlide() {
-    // Check if we have slides to prevent errors if images aren't loaded yet
     if (totalSlides > 0) {
         currentIndex++;
-        // If we reach the end, loop back to the first poster
         if (currentIndex >= totalSlides) {
             currentIndex = 0;
         }
-        // Move the container to the left by 100% per slide
         sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
 }
 
-// Run the moveSlide function every 1500 milliseconds (1.5 seconds)
+// Runs the slider every 1500 milliseconds (1.5 seconds)
 setInterval(moveSlide, 1500);
 
 
-// --- 3. Fake Live Purchase Logic ---
+// --- 3. Fake Live Purchase Logic (Every 2.5 Seconds) ---
 const buyerNameElement = document.getElementById('buyer-name');
 const itemBoughtElement = document.getElementById('item-bought');
 
-// Lists of fake names and items to cycle through
-const fakeNames = ["Rahul99", "ProGamer_X", "Aman_007", "DarkKnight", "Priya_Plays", "ShadowHunter"];
-const fakeItems = ["Weekly Diamond Pass", "Twilight Pass", "500 Diamonds", "Premium Starlight", "1000 Followers", "Netflix 1 Month"];
+// Base names and tags to generate endless unique combinations
+const baseNames = ["Rahul", "Priya", "Aman", "Rohan", "Sneha", "Vikram", "DarkKnight", "ProGamer", "Shadow", "Ninja", "Karan", "Anjali", "Suresh", "Aditya", "Neha", "Phantom", "GamerX", "Viper", "Ghost", "Sam"];
+const nameTags = ["_YT", "007", "99", "_Pro", "X", "Plays", "123", "_Official", "Gaming"];
+
+// Store items matching your inventory
+const fakeItems = [
+    "Weekly Diamond Pass",
+    "86 Diamonds",
+    "172 Diamonds",
+    "Netflix 1 Month 4K",
+    "1000 Instagram Followers",
+    "Spotify Premium 3 Months",
+    "500 Telegram Members",
+    "BGMI 60 UC",
+    "Twilight Pass"
+];
 
 function generateFakePurchase() {
-    // Pick a random name and item from the arrays
-    const randomName = fakeNames[Math.floor(Math.random() * fakeNames.length)];
+    // 1. Pick a random base name
+    const randomBase = baseNames[Math.floor(Math.random() * baseNames.length)];
+    // 2. Pick a random tag
+    const randomTag = nameTags[Math.floor(Math.random() * nameTags.length)];
+    // 3. Pick a random number between 0 and 999
+    const randomNumber = Math.floor(Math.random() * 999); 
+    
+    // Combine them perfectly (Example output: "Phantom_YT245" or "Rahul00789")
+    const finalName = `${randomBase}${randomTag}${randomNumber}`;
+    
+    // Pick a random store item
     const randomItem = fakeItems[Math.floor(Math.random() * fakeItems.length)];
 
-    // Update the text on the website
-    buyerNameElement.textContent = randomName;
+    // Update the HTML text on the screen
+    buyerNameElement.textContent = finalName;
     itemBoughtElement.textContent = randomItem;
 }
 
-// Change the fake purchase notification every 4 seconds
-setInterval(generateFakePurchase, 4000);
+// Runs the fake purchase generator every 2500 milliseconds (2.5 seconds)
+setInterval(generateFakePurchase, 2500);
