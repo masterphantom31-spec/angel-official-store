@@ -143,9 +143,13 @@
         </section>
     </main>
 
-    <script>
+<script>
         const filterButtons = document.querySelectorAll('.category-btn');
         const productCards = document.querySelectorAll('.diamond-card');
+        const orderBtn = document.getElementById('order-now-btn');
+
+        let selectedPackage = "";
+        let selectedPrice = "";
 
         function filterItems(filterValue) {
             productCards.forEach(card => {
@@ -153,11 +157,12 @@
                     card.style.display = 'flex'; 
                 } else {
                     card.style.display = 'none'; 
+                    card.classList.remove('selected'); 
                 }
             });
+            selectedPackage = ""; 
         }
 
-        // Loads "Small Package" items initially
         filterItems('small');
 
         filterButtons.forEach(button => {
@@ -167,6 +172,42 @@
                 filterItems(button.getAttribute('data-filter'));
             });
         });
+
+        productCards.forEach(card => {
+            card.addEventListener('click', () => {
+                productCards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                selectedPackage = card.querySelector('.amount').innerText;
+                selectedPrice = card.querySelector('.price').innerText;
+            });
+        });
+
+        // --- NEW: Go to Payment Page Logic ---
+        orderBtn.addEventListener('click', () => {
+            const playerId = document.getElementById('player-id').value;
+            const zoneId = document.getElementById('zone-id').value;
+
+            if (!playerId || !zoneId) {
+                alert("Please enter both your Player ID and Zone ID!");
+                return;
+            }
+            if (!selectedPackage) {
+                alert("Please select a diamond package first!");
+                return;
+            }
+
+            // Save details to the browser's temporary memory
+            localStorage.setItem("order_game", "MLBB");
+            localStorage.setItem("order_playerId", playerId);
+            localStorage.setItem("order_zoneId", zoneId);
+            localStorage.setItem("order_package", selectedPackage);
+            localStorage.setItem("order_price", selectedPrice);
+
+            // Redirect to your new payment page
+            window.location.href = "payment.html";
+        });
     </script>
+
+    
 </body>
 </html>
