@@ -3,50 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLBB Top-Up - Angel Official Store</title>
+    <title>MLBB Top-Up | Angel Official Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <a href="index.html" style="color: #00ffcc; text-decoration: none; font-size: 24px; margin-right: 15px;">←</a>
-        <h1>MLBB Top-Up</h1>
+        <h1>Angel Official Store - MLBB</h1>
     </header>
 
     <main>
         <section id="player-info-section">
             <h2>1. Enter Account Details</h2>
             <div class="input-group">
-                <input type="text" id="player-id" placeholder="Enter Player ID" required>
-                <input type="text" id="zone-id" placeholder="(Server/Zone ID)" required>
+                <input type="number" id="player-id" placeholder="Enter Player ID" required>
+                <input type="number" id="zone-id" placeholder="(Zone ID)" required>
+            </div>
+        </section>
+
+        <section id="category-filter-section">
+            <div class="category-grid">
+                <button class="category-btn active" data-filter="all">All Options</button>
+                <button class="category-btn" data-filter="small">Small Package</button>
+                <button class="category-btn" data-filter="medium">Medium Package</button>
+                <button class="category-btn" data-filter="weekly">Weekly Pass</button>
+                <button class="category-btn" data-filter="double">Double Diamonds</button>
             </div>
         </section>
 
         <section id="diamond-selection">
             <h2>2. Select Recharge Amount</h2>
-            <div class="diamond-grid">
+            <div class="diamond-grid" id="diamond-list-container">
                 
-                <div class="diamond-card">
-                    <img src="diamond-icon.png" alt="Diamonds">
+                <div class="diamond-card" data-category="small">
+                    <img src="diamond-icon.png" alt="5 Diamonds">
                     <div class="diamond-details">
-                        <p class="amount">86 Diamonds</p>
+                        <p class="amount">5 Diamonds</p>
+                        <p class="price">₹15</p>
+                    </div>
+                </div>
+
+                <div class="diamond-card" data-category="double">
+                    <img src="diamond-icon.png" alt="100 Diamonds">
+                    <div class="diamond-details">
+                        <p class="amount">50+50 Bonus</p>
+                        <p class="price">₹90</p>
+                    </div>
+                </div>
+
+                <div class="diamond-card" data-category="weekly">
+                    <img src="weekly-pass.png" alt="Weekly Pass">
+                    <div class="diamond-details">
+                        <p class="amount">Weekly Pass</p>
                         <p class="price">₹150</p>
                     </div>
                 </div>
 
-                <div class="diamond-card">
-                    <img src="diamond-icon.png" alt="Diamonds">
+                <div class="diamond-card" data-category="double">
+                    <img src="diamond-icon.png" alt="1000 Diamonds">
                     <div class="diamond-details">
-                        <p class="amount">172 Diamonds</p>
-                        <p class="price">₹300</p>
+                        <p class="amount">500+500 Bonus</p>
+                        <p class="price">₹810</p>
                     </div>
                 </div>
 
-                <div class="diamond-card">
-                    <img src="weekly-pass.png" alt="Weekly Pass">
+                <div class="diamond-card" data-category="medium">
+                    <img src="diamond-icon.png" alt="2195 Diamonds">
                     <div class="diamond-details">
-                        <p class="amount">Weekly Pass</p>
-                        <p class="price">₹160</p>
+                        <p class="amount">2195 Diamonds</p>
+                        <p class="price">₹2890</p>
                     </div>
                 </div>
 
@@ -58,5 +84,30 @@
         </section>
     </main>
 
+    <script>
+        const filterButtons = document.querySelectorAll('.category-btn');
+        const productCards = document.querySelectorAll('.diamond-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove 'active' glow from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add 'active' glow to the clicked button
+                button.classList.add('active');
+
+                // Get the filter type (small, medium, etc.)
+                const filterValue = button.getAttribute('data-filter');
+
+                // Hide or show the cards instantly
+                productCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'flex'; // Show matching items
+                    } else {
+                        card.style.display = 'none'; // Hide non-matching items
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
