@@ -381,3 +381,12 @@ h2 {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(255, 170, 0, 0.5);
 }
+
+/* --- Icon Cards 1:1 Ratio Fix --- */
+.icon-card img {
+    width: 80px;         /* Sets a uniform width */
+    height: 80px;        /* Matches the width for a perfect 1:1 square */
+    object-fit: cover;   /* Crops the image perfectly without stretching */
+    border-radius: 12px; /* Keeps those premium rounded corners */
+    margin-bottom: 10px;
+}
