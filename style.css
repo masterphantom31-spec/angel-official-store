@@ -283,3 +283,37 @@ h2 {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 255, 204, 0.5);
 }
+
+/* --- Category Filter Buttons --- */
+.category-grid {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; /* Allows swiping left/right on phones */
+    padding-bottom: 5px;
+    margin-top: 10px;
+}
+
+/* Hides the ugly scrollbar but keeps swiping active */
+.category-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.category-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap; /* Keeps button text on one line */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.category-btn.active, .category-btn:hover {
+    background: rgba(0, 255, 204, 0.15);
+    border-color: #00ffcc;
+    color: #00ffcc;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+}
