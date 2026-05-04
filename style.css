@@ -195,3 +195,25 @@ input {
   transform: scale(1.1);
   transition: 0.2s ease;
 }
+
+/* GLOBAL FULL WIDTH FIX FOR ALL PAGES */
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* MAIN CONTENT WRAPPER */
+.page {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* MAKE GRID MATCH HOMEPAGE SIZE */
+.grid {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
