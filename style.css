@@ -384,7 +384,7 @@ h2 {
 
 /* --- Premium App-Style Square Cards --- */
 .icon-card, .game-card {
-    aspect-ratio: 1 / 1; 
+    aspect-ratio: 1 / 1 !important; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -393,9 +393,10 @@ h2 {
 }
 
 .icon-card img, .game-card img {
-    width: 80%; 
-    aspect-ratio: 1 / 1; 
-    object-fit: cover; 
-    border-radius: 16px; 
-    margin-bottom: 8px;
+    width: 65% !important;          /* Scales it perfectly inside the box */
+    height: auto !important;        /* Wipes out the old squashed height */
+    aspect-ratio: 1 / 1 !important; /* FORCES the perfect square */
+    object-fit: cover !important;   /* Crops cleanly without stretching */
+    border-radius: 16px !important; 
+    margin-bottom: 10px !important;
 }
