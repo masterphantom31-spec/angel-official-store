@@ -1,246 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angel Official Store | Top-up Center</title>
-    <style>
-        :root {
-            --primary-pink: #ff007f;
-            --dark-bg: #0a0a0a;
-            --card-bg: #161616;
-            --text-main: #ffffff;
-            --text-dim: #a0a0a0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angel Official Store</title>
 
-        body {
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            overflow-x: hidden;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-        /* HEADER SECTION */
-        header {
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #222;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 900;
-            color: var(--primary-pink);
-            text-transform: uppercase;
-            text-decoration: none;
-        }
-
-        /* HAMBURGER MENU */
-       #menu-toggle { display: none; }
-
-.menu-icon { 
-    font-size: 30px; 
-    cursor: pointer; 
-    color: #ff007f; 
-    z-index: 3000; 
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #020617, #000);
+  color: white;
 }
 
-.nav-menu {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 280px;
-    height: 100%;
-    background-color: #000000;
-    border-right: 2px solid #ff007f;
-    transition: 0.3s;
-    z-index: 9999;
-    padding-top: 80px;
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 25px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
 }
 
-.nav-menu a {
-    display: block;
-    padding: 20px 30px;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-bottom: 1px solid #222;
+header h1 {
+  color: #22c55e;
 }
 
-#menu-toggle:checked ~ header .nav-menu {
-    left: 0;
+nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: white;
 }
-       
-        /* FEATURED OFFERS SECTION */
-        .section-title {
-            text-align: left;
-            padding: 20px;
-            font-size: 22px;
-            font-weight: bold;
-            color: var(--text-main);
-        }
 
-        .featured-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 15px;
-            padding: 0 20px 20px 20px;
-            scrollbar-width: none; /* Hides scrollbar on Firefox */
-        }
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+}
 
-        .offer-card {
-            min-width: 200px;
-            background: linear-gradient(145deg, #1e1e1e, #111);
-            border-radius: 15px;
-            padding: 15px;
-            border: 1px solid #333;
-            text-align: left;
-            position: relative;
-        }
+.hero h2 {
+  font-size: 36px;
+}
 
-        .hot-tag {
-            background: var(--primary-pink);
-            color: black;
-            font-size: 12px;
-            font-weight: bold;
-            padding: 2px 8px;
-            border-radius: 5px;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
+.hero span {
+  color: #22c55e;
+}
 
-        /* GAME SELECTION GRID */
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            padding: 20px;
-        }
+.cta {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: linear-gradient(45deg, #22c55e, #4ade80);
+  color: black;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+}
 
-        .game-card {
-            background: var(--card-bg);
-            border-radius: 18px;
-            padding: 10px;
-            border: 1px solid #222;
-            transition: 0.3s;
-            text-decoration: none;
-            color: white;
-        }
+/* LIVE ORDER BAR */
+.live {
+  background: #022c22;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #4ade80;
+  animation: blink 1.5s infinite alternate;
+}
 
-        .game-card:hover {
-            border-color: var(--primary-pink);
-            transform: translateY(-5px);
-        }
+@keyframes blink {
+  from {opacity: 0.5;}
+  to {opacity: 1;}
+}
 
-        .game-img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background: #333;
-            border-radius: 12px;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
+/* GAMES */
+.games {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
 
-        .game-name {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
+.card {
+  background: rgba(30,41,59,0.6);
+  border-radius: 15px;
+  padding: 10px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
 
-        .game-category {
-            font-size: 12px;
-            color: var(--primary-pink);
-            text-transform: uppercase;
-            font-weight: bold;
-        }
+.card:hover {
+  transform: scale(1.05);
+}
 
-        /* CUSTOM BUTTON */
-        .btn-main {
-            background: var(--primary-pink);
-            color: black;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            width: 100%;
-            margin-top: 10px;
-        }
-    </style>
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card h3 {
+  margin: 10px 0;
+}
+
+.price {
+  color: #4ade80;
+  font-size: 14px;
+}
+
+.btn {
+  display: block;
+  padding: 8px;
+  background: linear-gradient(45deg, #22c55e, #4ade80);
+  color: black;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* REVIEWS */
+.reviews {
+  padding: 30px;
+  text-align: center;
+}
+
+.review-box {
+  background: rgba(255,255,255,0.05);
+  margin: 10px auto;
+  padding: 15px;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #94a3b8;
+}
+</style>
+
 </head>
 
 <body>
-    <input type="checkbox" id="menu-toggle">
 
-    <header>
-        <label for="menu-toggle" class="menu-icon">&#9776;</label>
-        <a href="#" class="logo">Angel Official Store</a>
-        
-        <nav class="nav-menu">
-            <a href="#">Home</a>
-            <a href="#">My Orders</a>
-            <a href="#">Support</a>
-            <a href="#">Terms & Conditions</a>
-        </nav>
-    </header>
+<header>
+  <h1>Angel Store</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Games</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
 
-    
-    <div class="section-title">Featured Offers</div>
-    
-    <div class="featured-container">
-        <div class="offer-card">
-            <span class="hot-tag">HOT</span>
-            <div style="font-size: 14px; color: var(--text-dim);">Weekly Pass</div>
-            <div style="font-size: 18px; font-weight: bold; margin: 5px 0;">INR 150</div>
-            <button class="btn-main">Buy Now</button>
-        </div>
-        <div class="offer-card">
-            <span class="hot-tag">HOT</span>
-            <div style="font-size: 14px; color: var(--text-dim);">60 UC</div>
-            <div style="font-size: 18px; font-weight: bold; margin: 5px 0;">INR 80</div>
-            <button class="btn-main">Buy Now</button>
-        </div>
-    </div>
+<div class="live">
+🔥 Someone just purchased Mobile Legends Diamonds!
+</div>
 
-    <div class="section-title">Select Game</div>
+<div class="hero">
+  <h2>Fast & Trusted <span>Game Top-Ups</span></h2>
+  <p>Instant Manual Delivery • 24/7 Support</p>
+  <a class="cta" href="https://wa.me/919366808003">Order Now</a>
+</div>
 
-    <div class="game-grid">
-        <a href="#" class="game-card">
-            <div class="game-img" style="background-image: url('https://via.placeholder.com/150'); background-size: cover;"></div>
-            <div class="game-name">Mobile Legends</div>
-            <div class="game-category">MOBA</div>
-        </a>
+<div class="games">
 
-        <a href="#" class="game-card">
-            <div class="game-img" style="background-image: url('https://via.placeholder.com/150'); background-size: cover;"></div>
-            <div class="game-name">BGMI</div>
-            <div class="game-category">FPS</div>
-        </a>
+  <div class="card">
+    <img src="https://via.placeholder.com/300x200">
+    <h3>Mobile Legends</h3>
+    <div class="price">Starting ₹80</div>
+    <a class="btn" href="https://wa.me/919366808003?text=ML%20Topup">Buy Now</a>
+  </div>
 
-        <a href="#" class="game-card">
-            <div class="game-img" style="background-image: url('https://via.placeholder.com/150'); background-size: cover;"></div>
-            <div class="game-name">Free Fire</div>
-            <div class="game-category">FPS</div>
-        </a>
+  <div class="card">
+    <img src="https://via.placeholder.com/300x200">
+    <h3>Free Fire</h3>
+    <div class="price">Starting ₹50</div>
+    <a class="btn" href="https://wa.me/919366808003?text=FF%20Topup">Buy Now</a>
+  </div>
 
-        <a href="#" class="game-card">
-            <div class="game-img" style="background-image: url('https://via.placeholder.com/150'); background-size: cover;"></div>
-            <div class="game-name">Honor of Kings</div>
-            <div class="game-category">MOBA</div>
-        </a>
-    </div>
+  <div class="card">
+    <img src="https://via.placeholder.com/300x200">
+    <h3>BGMI</h3>
+    <div class="price">Starting ₹100</div>
+    <a class="btn" href="https://wa.me/919366808003?text=BGMI%20Topup">Buy Now</a>
+  </div>
+
+</div>
+
+<div class="reviews">
+  <h2>Customer Reviews</h2>
+
+  <div class="review-box">
+    ⭐⭐⭐⭐ <br>
+    Fast delivery, trusted seller!
+  </div>
+
+  <div class="review-box">
+    ⭐⭐⭐⭐⭐ <br>
+    Got my diamonds instantly 🔥
+  </div>
+
+</div>
+
+<footer>
+  WhatsApp: +91 9383300728 <br>
+  © 2026 Angel Official Store
+</footer>
 
 </body>
 </html>
