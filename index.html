@@ -1,151 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Angel Official Store</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-<style>
-html { scroll-behavior: smooth; }
-
-body {
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background: radial-gradient(circle at top,#020617,#000);
-  color:white;
-}
-
-/* HEADER */
-header {
-  display:flex;
-  align-items:center;
-  padding:15px;
-  background:rgba(0,0,0,0.7);
-  backdrop-filter:blur(10px);
-}
-
-header h1 {
-  margin-left:15px;
-  font-weight:700;
-  letter-spacing:2px;
-  color:#22c55e;
-}
-
-/* MENU */
-.menu-icon {
-  font-size:24px;
-  cursor:pointer;
-}
-
-.sidebar {
-  position:fixed;
-  top:0;
-  left:-250px;
-  width:220px;
-  height:100%;
-  background:#020617;
-  transition:0.3s;
-  z-index:1000;
-}
-
-.sidebar a {
-  display:block;
-  padding:15px;
-  color:white;
-  text-decoration:none;
-}
-
-.sidebar a:hover {
-  background:#1e293b;
-}
-
-/* OVERLAY */
-#overlay {
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.6);
-  display:none;
-}
-
-/* HERO */
-.hero {
-  text-align:center;
-  padding:80px 20px;
-}
-
-.hero h2 {
-  font-size:38px;
-}
-
-.hero span {
-  color:#22c55e;
-}
-
-.cta {
-  margin-top:20px;
-  padding:12px 25px;
-  background:linear-gradient(45deg,#22c55e,#4ade80);
-  color:black;
-  border-radius:8px;
-  display:inline-block;
-  text-decoration:none;
-}
-
-/* GRID */
-.section {
-  padding:20px;
-}
-
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:20px;
-}
-
-/* CARD */
-.card {
-  background:rgba(30,41,59,0.6);
-  border-radius:15px;
-  overflow:hidden;
-  transition:0.3s;
-  box-shadow:0 0 20px rgba(0,0,0,0.5);
-}
-
-.card:hover {
-  transform:translateY(-5px) scale(1.03);
-  box-shadow:0 0 25px #22c55e;
-}
-
-.card img {
-  width:100%;
-  height:120px;
-  object-fit:cover;
-}
-
-.card h3 {
-  padding:10px;
-}
-
-.btn {
-  margin:10px;
-  padding:10px;
-  background:linear-gradient(45deg,#22c55e,#4ade80);
-  text-align:center;
-  border-radius:6px;
-  color:black;
-  text-decoration:none;
-}
-
-/* FOOTER */
-footer {
-  text-align:center;
-  padding:20px;
-  color:#aaa;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -158,58 +16,42 @@ footer {
 <div id="overlay" onclick="closeMenu()"></div>
 
 <div id="sidebar" class="sidebar">
-  <a href="#">Home</a>
-  <a href="games.html">Games</a>
-  <a href="boosting.html">Boosting</a>
-  <a href="ott.html">OTT</a>
-</div>
-
-<!-- HERO -->
-<div class="hero">
-  <h2>FAST & TRUSTED <span>TOP-UP STORE</span></h2>
-  <p>Instant Delivery • Secure Deals</p>
-  <a class="cta" href="games.html">Start Now</a>
-</div>
-
-<!-- CARDS -->
-<div class="section">
-  <div class="grid">
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200">
-      <h3>Games Top-Up</h3>
-      <a class="btn" href="games.html">Explore</a>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200">
-      <h3>Social Boosting</h3>
-      <a class="btn" href="boosting.html">Explore</a>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200">
-      <h3>OTT Subscriptions</h3>
-      <a class="btn" href="ott.html">Explore</a>
-    </div>
-
+  <div>
+    <a href="index.html">Home</a>
+    <a href="games.html">Game Top-Ups</a>
+    <a href="boosting.html">Boosting</a>
+    <a href="ott.html">OTT</a>
+  </div>
+  <div class="bottom-links">
+    <a href="#">Terms</a>
+    <a href="#">Support</a>
   </div>
 </div>
 
-<footer>
-  © 2026 Angel Official Store
-</footer>
+<div class="hero">
+  <h2>FAST & TRUSTED <span>STORE</span></h2>
+</div>
 
-<script>
-function openMenu(){
-  document.getElementById("sidebar").style.left="0";
-  document.getElementById("overlay").style.display="block";
-}
-function closeMenu(){
-  document.getElementById("sidebar").style.left="-250px";
-  document.getElementById("overlay").style.display="none";
-}
-</script>
+<div class="grid">
+  <div class="card">
+    <img src="https://via.placeholder.com/300x200">
+    <h3>Games</h3>
+    <a class="btn" href="games.html">Explore</a>
+  </div>
 
+  <div class="card">
+    <img src="https://via.placeholder.com/300x200">
+    <h3>Boosting</h3>
+    <a class="btn" href="boosting.html">Explore</a>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300x200">
+    <h3>OTT</h3>
+    <a class="btn" href="ott.html">Explore</a>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
