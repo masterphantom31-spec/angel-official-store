@@ -2,11 +2,11 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
+  font-family:Arial, sans-serif;
 }
 
 body {
-  background: radial-gradient(circle at top,#020617,#000);
+  background:#020617;
   color:white;
 }
 
@@ -14,21 +14,21 @@ body {
 header {
   display:flex;
   align-items:center;
-  padding:10px 12px;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(10px);
+  padding:10px;
+  background:#000;
 }
 
 header h1 {
-  font-size:15px;
-  letter-spacing:1px;
+  font-size:16px;
   margin-left:10px;
   color:#22c55e;
-  text-transform:uppercase;
 }
 
 /* MENU */
-.menu-icon {font-size:22px; cursor:pointer;}
+.menu-icon {
+  font-size:22px;
+  cursor:pointer;
+}
 
 .sidebar {
   position:fixed;
@@ -68,18 +68,44 @@ header h1 {
   display:none;
 }
 
-/* HERO */
-.hero {
+/* 🔥 BANNER */
+.banner {
+  width:100%;
+  overflow:hidden;
+  position:relative;
+  margin-top:5px;
+}
+
+.slides {
+  display:flex;
+  transition:transform 0.4s ease;
+}
+
+.slide {
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  flex-shrink:0;
+}
+
+.dots {
+  position:absolute;
+  bottom:8px;
+  width:100%;
   text-align:center;
-  padding:60px 20px;
 }
 
-.hero h2 {
-  font-size:30px;
+.dot {
+  height:8px;
+  width:8px;
+  margin:0 4px;
+  background:#555;
+  display:inline-block;
+  border-radius:50%;
 }
 
-.hero span {
-  color:#22c55e;
+.dot.active {
+  background:#22c55e;
 }
 
 /* GRID */
@@ -92,17 +118,17 @@ header h1 {
 
 /* CARD */
 .card {
-  background:rgba(30,41,59,0.6);
-  border-radius:15px;
+  display:block;
+  text-decoration:none;
+  color:white;
+  background:#1e293b;
+  border-radius:10px;
   overflow:hidden;
-  backdrop-filter:blur(10px);
   transition:0.3s;
-  box-shadow:0 0 20px rgba(0,0,0,0.5);
 }
 
 .card:hover {
-  transform:translateY(-5px) scale(1.03);
-  box-shadow:0 0 25px #22c55e;
+  transform:scale(1.05);
 }
 
 .card img {
@@ -112,27 +138,6 @@ header h1 {
 }
 
 .card h3 {
-  padding:10px;
   text-align:center;
-}
-
-.btn {
-  margin:10px;
   padding:10px;
-  background:linear-gradient(45deg,#22c55e,#4ade80);
-  text-align:center;
-  border-radius:6px;
-  color:black;
-  text-decoration:none;
-}
-
-/* BUTTON */
-.button {
-  display:inline-block;
-  padding:10px 15px;
-  background:#22c55e;
-  color:black;
-  border-radius:6px;
-  margin:10px;
-  cursor:pointer;
 }
