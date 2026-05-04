@@ -27,3 +27,16 @@ setInterval(() => {
   index = (index + 1) % dots.length;
   updateSlide();
 }, 3000);
+
+
+// WHATSAPP POPUP AUTO SHOW
+setTimeout(() => {
+  const popup = document.getElementById("waPopup");
+  if (popup) {
+    popup.style.display = "block";
+
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 4000);
+  }
+}, 2000);
