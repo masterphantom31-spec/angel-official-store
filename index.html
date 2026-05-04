@@ -1,92 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Angel Official Store</title>
-
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angel Official Store</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- ================= HEADER ================= -->
-<header>
-  <div class="menu-icon" onclick="openMenu()">☰</div>
-  <h1>ANGEL OFFICIAL STORE</h1>
-</header>
+    <header>
+        <div id="hamburger-icon">☰</div>
+        <h1>Angel Official Store</h1>
+    </header>
 
-<!-- ================= OVERLAY ================= -->
-<div id="overlay" onclick="closeMenu()"></div>
+    <nav id="side-menu">
+        <ul>
+            <li>Home</li>
+            <li>Games</li>
+            <li>Social Media Boosting</li>
+            <li>OTT Platforms</li>
+        </ul>
+    </nav>
 
-<!-- ================= SIDEBAR MENU ================= -->
-<div id="sidebar" class="sidebar">
+    <main>
+        <section id="poster-slider">
+            <div class="slider-container">
+                <img src="poster1.jpg" alt="Promo Poster 1" class="slide">
+                <img src="poster2.jpg" alt="Promo Poster 2" class="slide">
+                <img src="poster3.jpg" alt="Promo Poster 3" class="slide">
+                <img src="poster4.jpg" alt="Promo Poster 4" class="slide">
+            </div>
+        </section>
 
-  <div>
-    <a href="index.html">Home</a>
-    <a href="games.html">Game Top-Ups</a>
-    <a href="boosting.html">Boosting</a>
-    <a href="ott.html">OTT Subscription</a>
-  </div>
+        <section id="live-purchase-bar">
+            <div id="purchase-notification">
+                <p><span id="buyer-name">User99</span> just bought <span id="item-bought">Weekly Diamond Pass</span>!</p>
+            </div>
+        </section>
 
-  <div class="bottom-links">
-    <a href="#">Terms & Conditions</a>
-    <a href="#">Support</a>
-  </div>
+        <section id="games-section">
+            <h2>Games</h2>
+            <div class="icon-grid">
+                <div class="icon-card" id="mlbb-icon">
+                    <img src="mlbb-icon.png" alt="Mobile Legends: Bang Bang">
+                    <p>MLBB</p>
+                </div>
+                <div class="icon-card" id="other-game-icon">
+                    <img src="other-game.png" alt="Other Game">
+                    <p>Other Game</p>
+                </div>
+            </div>
+        </section>
 
-</div>
+        <section id="social-media-section">
+            <h2>Social Media Boosting</h2>
+            <div class="icon-grid">
+                <div class="icon-card">
+                    <img src="instagram-icon.png" alt="Instagram Services">
+                    <p>Instagram</p>
+                </div>
+                <div class="icon-card">
+                    <img src="telegram-icon.png" alt="Telegram Services">
+                    <p>Telegram</p>
+                </div>
+            </div>
+        </section>
 
-<!-- ================= BANNER SLIDER ================= -->
-<div class="banner">
+        <section id="ott-section">
+            <h2>OTT Subscriptions</h2>
+            <div class="icon-grid">
+                <div class="icon-card">
+                    <img src="netflix-icon.png" alt="Netflix Subscriptions">
+                    <p>Netflix</p>
+                </div>
+                <div class="icon-card">
+                    <img src="spotify-icon.png" alt="Spotify Subscriptions">
+                    <p>Spotify</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <div class="slides" id="slides">
+    <a href="https://wa.me/YOURNUMBER" id="whatsapp-float" target="_blank">
+        <img src="whatsapp-logo.png" alt="WhatsApp Customer Care">
+    </a>
 
-    <img src="https://via.placeholder.com/800x250?text=Big+Deals+🔥" class="slide">
-    <img src="https://via.placeholder.com/800x250?text=Instant+Delivery+⚡" class="slide">
-    <img src="https://via.placeholder.com/800x250?text=Gaming+Store+🎮" class="slide">
-
-  </div>
-
-  <div class="dots">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-
-</div>
-
-<!-- ================= MAIN CARDS ================= -->
-<div class="grid">
-
-  <a href="games.html" class="card">
-    <img src="https://via.placeholder.com/300x200?text=Games">
-    <h3>Game Top-Ups</h3>
-  </a>
-
-  <a href="boosting.html" class="card">
-    <img src="https://via.placeholder.com/300x200?text=Boosting">
-    <h3>Social Boosting</h3>
-  </a>
-
-  <a href="ott.html" class="card">
-    <img src="https://via.placeholder.com/300x200?text=OTT">
-    <h3>OTT Subscriptions</h3>
-  </a>
-
-</div>
-
-<!-- ================= WHATSAPP BUTTON ================= -->
-<a 
-  href="https://wa.me/919383300728?text=Hello%20👋%20I%20need%20help%20from%20Angel%20Official%20Store"
-  class="whatsapp-btn"
-  target="_blank"
->
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-</a>
-
-<!-- ================= SCRIPT ================= -->
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
