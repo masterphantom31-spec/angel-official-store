@@ -195,7 +195,6 @@ header h1 {
   padding:20px;
 }
 
-/* INPUT FIX */
 input {
   width:100%;
   padding:12px;
@@ -204,7 +203,6 @@ input {
   border:none;
 }
 
-/* BUTTON FIX */
 .button {
   width:100%;
   padding:12px;
@@ -212,10 +210,4 @@ input {
   text-align:center;
   border-radius:6px;
   margin-top:10px;
-}
-
-/* FIX MOBILE FULL WIDTH */
-body {
-  margin:0;
-  padding:0;
 }
