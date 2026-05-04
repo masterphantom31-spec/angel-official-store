@@ -46,37 +46,39 @@
         }
 
         /* HAMBURGER MENU */
-        #menu-toggle { display: none; }
-        .menu-icon { font-size: 30px; cursor: pointer; color: var(--primary-pink); }
-/* THE SLIDE-OUT CONTAINER */
+       #menu-toggle { display: none; }
+
+.menu-icon { 
+    font-size: 30px; 
+    cursor: pointer; 
+    color: #ff007f; 
+    z-index: 3000; 
+}
+
 .nav-menu {
     position: fixed;
     top: 0;
     left: -100%;
     width: 280px;
     height: 100%;
-    background-color: #000000 !important; /* Forces solid black background */
+    background-color: #000000;
     border-right: 2px solid #ff007f;
-    transition: 0.3s ease;
-    z-index: 9999; /* Forces the menu to the very top layer */
+    transition: 0.3s;
+    z-index: 9999;
     padding-top: 80px;
-    display: block !important; /* Ensures the container isn't hidden */
 }
 
-/* THE LINKS (Text) INSIDE THE MENU */
 .nav-menu a {
-    display: block !important;
+    display: block;
     padding: 20px 30px;
-    color: #ffffff !important; /* Forces text to be white */
+    color: #ffffff;
     text-decoration: none;
     font-size: 22px;
     font-weight: bold;
     text-transform: uppercase;
     border-bottom: 1px solid #222;
-    visibility: visible !important; /* Forces text to stay visible */
 }
 
-/* THE LOGIC TO SHOW MENU */
 #menu-toggle:checked ~ header .nav-menu {
     left: 0;
 }
@@ -178,19 +180,23 @@
         }
     </style>
 </head>
-<body>
 
-   <header>
-    <label for="menu-toggle" class="menu-icon">&#9776;</label>
-    <a href="#" class="logo">Angel Official Store</a>
+<body>
+    <input type="checkbox" id="menu-toggle">
+
+    <header>
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <a href="#" class="logo">Angel Official Store</a>
+        
+        <nav class="nav-menu">
+            <a href="#">Home</a>
+            <a href="#">My Orders</a>
+            <a href="#">Support</a>
+            <a href="#">Terms & Conditions</a>
+        </nav>
+    </header>
+
     
-    <nav class="nav-menu">
-        <a href="#">Home</a>
-        <a href="#">My Orders</a>
-        <a href="#">Support</a>
-        <a href="#">Terms & Conditions</a>
-    </nav>
-</header>
     <div class="section-title">Featured Offers</div>
     
     <div class="featured-container">
