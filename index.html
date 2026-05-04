@@ -48,34 +48,39 @@
         /* HAMBURGER MENU */
         #menu-toggle { display: none; }
         .menu-icon { font-size: 30px; cursor: pointer; color: var(--primary-pink); }
+/* THE SLIDE-OUT CONTAINER */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100%;
+    background-color: #000000 !important; /* Forces solid black background */
+    border-right: 2px solid #ff007f;
+    transition: 0.3s ease;
+    z-index: 9999; /* Forces the menu to the very top layer */
+    padding-top: 80px;
+    display: block !important; /* Ensures the container isn't hidden */
+}
 
-        .nav-menu {
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 80%;
-            max-width: 300px;
-            height: 100%;
-            background: var(--dark-bg);
-            transition: 0.4s;
-            z-index: 999;
-            padding-top: 80px;
-            text-align: left;
-            border-right: 2px solid var(--primary-pink);
-        }
+/* THE LINKS (Text) INSIDE THE MENU */
+.nav-menu a {
+    display: block !important;
+    padding: 20px 30px;
+    color: #ffffff !important; /* Forces text to be white */
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid #222;
+    visibility: visible !important; /* Forces text to stay visible */
+}
 
-        .nav-menu a {
-            display: block;
-            padding: 20px 30px;
-            color: white;
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: bold;
-            border-bottom: 1px solid #1a1a1a;
-        }
-
-        #menu-toggle:checked ~ .nav-menu { left: 0; }
-
+/* THE LOGIC TO SHOW MENU */
+#menu-toggle:checked ~ header .nav-menu {
+    left: 0;
+}
+       
         /* FEATURED OFFERS SECTION */
         .section-title {
             text-align: left;
@@ -175,18 +180,17 @@
 </head>
 <body>
 
-    <header>
-        <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle" class="menu-icon">&#9776;</label>
-        <a href="#" class="logo">Angel Store</a>
-        <div style="width: 30px;"></div> <nav class="nav-menu">
-            <a href="#">Home</a>
-            <a href="#">My Orders</a>
-            <a href="#">Support</a>
-            <a href="#">Terms</a>
-        </nav>
-    </header>
-
+   <header>
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <a href="#" class="logo">Angel Official Store</a>
+    
+    <nav class="nav-menu">
+        <a href="#">Home</a>
+        <a href="#">My Orders</a>
+        <a href="#">Support</a>
+        <a href="#">Terms & Conditions</a>
+    </nav>
+</header>
     <div class="section-title">Featured Offers</div>
     
     <div class="featured-container">
