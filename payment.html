@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout | Angel Official Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="mlbb.html" style="color: #00ffcc; text-decoration: none; font-size: 24px; margin-right: 15px;">←</a>
+        <h1>Secure Checkout</h1>
+    </header>
+
+    <main>
+        <section id="order-summary">
+            <h2>Order Summary</h2>
+            <div class="summary-card">
+                <p>Selected Package: <strong id="display-package">Loading...</strong></p>
+                <h3>Total Amount: <span id="display-price">₹0</span></h3>
+            </div>
+        </section>
+
+        <section id="qr-section">
+            <h2>Scan & Pay</h2>
+            <div class="qr-container">
+                <p>Please scan the QR code below and pay the exact amount shown above.</p>
+                
+                <img src="qr-code.jpg" alt="Store QR Code" id="payment-qr">
+                
+                <p style="color: #ffaa00; font-size: 13px; margin-top: 10px;">Note: Do not close this page until payment is successful.</p>
+            </div>
+        </section>
+
+        <section id="checkout-section">
+            <button id="paid-btn">Yes, I Have Paid</button>
+        </section>
+    </main>
+
+    <script>
+        // Retrieve the data we saved from the MLBB page
+        const game = localStorage.getItem("order_game");
+        const playerId = localStorage.getItem("order_playerId");
+        const zoneId = localStorage.getItem("order_zoneId");
+        const pkg = localStorage.getItem("order_package");
+        const price = localStorage.getItem("order_price");
+
+        // Display the package and price on the screen
+        document.getElementById('display-package').innerText = pkg;
+        document.getElementById('display-price').innerText = price;
+
+        // WhatsApp Redirect when they click "Yes, I Have Paid"
+        document.getElementById('paid-btn').addEventListener('click', () => {
+            
+            // Create the final WhatsApp message including all details
+            const message = `Hello Angel Official Store!%0A%0A✅ *Payment Completed!*%0AHere are my order details:%0A%0A🎮 Game: ${game}%0A📦 Package: ${pkg} (${price})%0A🆔 Player ID: ${playerId}%0A🌐 Zone ID: ${zoneId}%0A%0APlease verify my payment and process the top-up!`;
+            
+            // Redirect to your specific WhatsApp number
+            const whatsappUrl = `https://wa.me/919383300728?text=${message}`;
+            window.location.href = whatsappUrl;
+        });
+    </script>
+</body>
+</html>
