@@ -5,13 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Angel Official Store</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
 html { scroll-behavior: smooth; }
 
 body {
   margin:0;
-  font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle at top, #020617, #000);
+  font-family:'Poppins',sans-serif;
+  background: radial-gradient(circle at top,#020617,#000);
   color:white;
 }
 
@@ -20,8 +22,8 @@ header {
   display:flex;
   align-items:center;
   padding:15px;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(10px);
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(10px);
 }
 
 header h1 {
@@ -66,7 +68,6 @@ header h1 {
   height:100%;
   background:rgba(0,0,0,0.6);
   display:none;
-  z-index:999;
 }
 
 /* HERO */
@@ -76,7 +77,7 @@ header h1 {
 }
 
 .hero h2 {
-  font-size:36px;
+  font-size:38px;
 }
 
 .hero span {
@@ -86,11 +87,11 @@ header h1 {
 .cta {
   margin-top:20px;
   padding:12px 25px;
-  background: linear-gradient(45deg, #22c55e, #4ade80);
+  background:linear-gradient(45deg,#22c55e,#4ade80);
   color:black;
-  text-decoration:none;
   border-radius:8px;
   display:inline-block;
+  text-decoration:none;
 }
 
 /* GRID */
@@ -98,89 +99,52 @@ header h1 {
   padding:20px;
 }
 
-.section h2 {
-  text-align:center;
-}
-
 .grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:15px;
-  margin-top:15px;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
 }
 
+/* CARD */
 .card {
-  background: rgba(30,41,59,0.6);
+  background:rgba(30,41,59,0.6);
   border-radius:15px;
-  padding:10px;
-  text-align:center;
-  backdrop-filter: blur(10px);
+  overflow:hidden;
   transition:0.3s;
   box-shadow:0 0 20px rgba(0,0,0,0.5);
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform:translateY(-5px) scale(1.03);
   box-shadow:0 0 25px #22c55e;
+}
+
+.card img {
+  width:100%;
+  height:120px;
+  object-fit:cover;
+}
+
+.card h3 {
+  padding:10px;
 }
 
 .btn {
-  display:block;
-  margin-top:10px;
-  padding:8px;
-  background: linear-gradient(45deg,#22c55e,#4ade80);
+  margin:10px;
+  padding:10px;
+  background:linear-gradient(45deg,#22c55e,#4ade80);
+  text-align:center;
+  border-radius:6px;
   color:black;
-  border-radius:6px;
-  cursor:pointer;
+  text-decoration:none;
 }
 
-/* POPUP */
-.popup {
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:#020617;
+/* FOOTER */
+footer {
+  text-align:center;
   padding:20px;
-  border-radius:15px;
-  display:none;
-  z-index:2000;
-  width:90%;
-  max-width:320px;
-  box-shadow:0 0 25px #22c55e;
+  color:#aaa;
 }
-
-.popup input, .popup select {
-  width:100%;
-  padding:10px;
-  margin:8px 0;
-  border:none;
-  border-radius:6px;
-}
-
-.popup button {
-  width:100%;
-  padding:10px;
-  background:#22c55e;
-  border:none;
-  border-radius:6px;
-}
-
-.close {
-  float:right;
-  cursor:pointer;
-}
-
-/* ANIMATION */
-@keyframes glow {
-  from { box-shadow:0 0 5px #22c55e; }
-  to { box-shadow:0 0 20px #22c55e; }
-}
-
-.card {
-  animation: glow 2s infinite alternate;
-}
-
 </style>
 </head>
 
@@ -194,91 +158,56 @@ header h1 {
 <div id="overlay" onclick="closeMenu()"></div>
 
 <div id="sidebar" class="sidebar">
-  <a href="#home" onclick="closeMenu()">Home</a>
-  <a href="#games" onclick="closeMenu()">Games</a>
-  <a href="#boosting" onclick="closeMenu()">Boosting</a>
-  <a href="#ott" onclick="closeMenu()">OTT</a>
+  <a href="#">Home</a>
+  <a href="games.html">Games</a>
+  <a href="boosting.html">Boosting</a>
+  <a href="ott.html">OTT</a>
 </div>
 
-<div id="home" class="hero">
+<!-- HERO -->
+<div class="hero">
   <h2>FAST & TRUSTED <span>TOP-UP STORE</span></h2>
-  <p>Instant Service • Secure Deals</p>
-  <a class="cta" href="https://wa.me/919366808003">Order Now</a>
+  <p>Instant Delivery • Secure Deals</p>
+  <a class="cta" href="games.html">Start Now</a>
 </div>
 
-<div id="games" class="section">
-  <h2>Games</h2>
+<!-- CARDS -->
+<div class="section">
   <div class="grid">
-    <div class="card"><h3>Mobile Legends</h3><div class="btn" onclick="openForm('Mobile Legends')">Buy</div></div>
-    <div class="card"><h3>Free Fire</h3><div class="btn" onclick="openForm('Free Fire')">Buy</div></div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200">
+      <h3>Games Top-Up</h3>
+      <a class="btn" href="games.html">Explore</a>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200">
+      <h3>Social Boosting</h3>
+      <a class="btn" href="boosting.html">Explore</a>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200">
+      <h3>OTT Subscriptions</h3>
+      <a class="btn" href="ott.html">Explore</a>
+    </div>
+
   </div>
 </div>
 
-<div id="boosting" class="section">
-  <h2>Social Media Boosting</h2>
-  <div class="grid">
-    <div class="card"><h3>Instagram</h3><div class="btn" onclick="openForm('Instagram Boost')">Order</div></div>
-    <div class="card"><h3>YouTube</h3><div class="btn" onclick="openForm('YouTube Boost')">Order</div></div>
-  </div>
-</div>
-
-<div id="ott" class="section">
-  <h2>OTT Subscription</h2>
-  <div class="grid">
-    <div class="card"><h3>Netflix</h3><div class="btn" onclick="openForm('Netflix')">Buy</div></div>
-    <div class="card"><h3>Amazon Prime</h3><div class="btn" onclick="openForm('Prime')">Buy</div></div>
-  </div>
-</div>
-
-<div id="popup" class="popup">
-  <span class="close" onclick="closeForm()">✖</span>
-  <h3 id="product"></h3>
-
-  <input id="name" placeholder="Your Name">
-  <input id="id" placeholder="ID / Username">
-  <input id="number" placeholder="WhatsApp Number">
-
-  <select id="plan">
-    <option>Basic Plan</option>
-    <option>Standard Plan</option>
-    <option>Premium Plan</option>
-  </select>
-
-  <button onclick="sendOrder()">Checkout</button>
-</div>
+<footer>
+  © 2026 Angel Official Store
+</footer>
 
 <script>
-let selectedProduct="";
-
 function openMenu(){
   document.getElementById("sidebar").style.left="0";
   document.getElementById("overlay").style.display="block";
 }
-
 function closeMenu(){
   document.getElementById("sidebar").style.left="-250px";
   document.getElementById("overlay").style.display="none";
-}
-
-function openForm(product){
-  selectedProduct=product;
-  document.getElementById("product").innerText=product;
-  document.getElementById("popup").style.display="block";
-}
-
-function closeForm(){
-  document.getElementById("popup").style.display="none";
-}
-
-function sendOrder(){
-  let name=document.getElementById("name").value;
-  let id=document.getElementById("id").value;
-  let number=document.getElementById("number").value;
-  let plan=document.getElementById("plan").value;
-
-  let msg=`Order:%0AProduct:${selectedProduct}%0AName:${name}%0AID:${id}%0ANumber:${number}%0APlan:${plan}`;
-
-  window.location.href="https://wa.me/919366808003?text="+msg;
 }
 </script>
 
