@@ -196,6 +196,7 @@ h2 {
 /* --- Input Boxes (Player ID & Zone ID) --- */
 .input-group {
     display: flex;
+    flex-direction: column; /* This stacks them vertically */
     gap: 10px;
     margin-top: 10px;
 }
