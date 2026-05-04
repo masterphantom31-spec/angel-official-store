@@ -5,218 +5,280 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Angel Official Store</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
 <style>
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  margin: 0;
+  margin:0;
   font-family: 'Poppins', sans-serif;
-  background: #020617;
-  color: white;
+  background: radial-gradient(circle at top, #020617, #000);
+  color:white;
 }
 
 /* HEADER */
 header {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  background: rgba(0,0,0,0.6);
+  display:flex;
+  align-items:center;
+  padding:15px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
 }
 
 header h1 {
-  margin-left: 15px;
-  color: #22c55e;
-  font-size: 18px;
+  margin-left:15px;
+  font-weight:700;
+  letter-spacing:2px;
+  color:#22c55e;
 }
 
-/* HAMBURGER */
+/* MENU */
 .menu-icon {
-  font-size: 24px;
-  cursor: pointer;
+  font-size:24px;
+  cursor:pointer;
 }
 
-/* SIDEBAR */
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 220px;
-  height: 100%;
-  background: #020617;
-  padding-top: 60px;
-  transition: 0.3s;
+  position:fixed;
+  top:0;
+  left:-250px;
+  width:220px;
+  height:100%;
+  background:#020617;
+  transition:0.3s;
+  z-index:1000;
 }
 
 .sidebar a {
-  display: block;
-  padding: 15px;
-  text-decoration: none;
-  color: white;
+  display:block;
+  padding:15px;
+  color:white;
+  text-decoration:none;
 }
 
 .sidebar a:hover {
-  background: #1e293b;
+  background:#1e293b;
+}
+
+/* OVERLAY */
+#overlay {
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  z-index:999;
 }
 
 /* HERO */
 .hero {
-  text-align: center;
-  padding: 50px 20px;
+  text-align:center;
+  padding:80px 20px;
+}
+
+.hero h2 {
+  font-size:36px;
+}
+
+.hero span {
+  color:#22c55e;
 }
 
 .cta {
-  padding: 10px 20px;
-  background: #22c55e;
-  color: black;
-  text-decoration: none;
-  border-radius: 6px;
-  display: inline-block;
-  margin-top: 10px;
+  margin-top:20px;
+  padding:12px 25px;
+  background: linear-gradient(45deg, #22c55e, #4ade80);
+  color:black;
+  text-decoration:none;
+  border-radius:8px;
+  display:inline-block;
 }
 
 /* GRID */
 .section {
-  padding: 20px;
+  padding:20px;
 }
 
 .section h2 {
-  text-align: center;
+  text-align:center;
 }
 
-.games {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-  margin-top: 15px;
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:15px;
+  margin-top:15px;
 }
 
 .card {
-  background: #1e293b;
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
+  background: rgba(30,41,59,0.6);
+  border-radius:15px;
+  padding:10px;
+  text-align:center;
+  backdrop-filter: blur(10px);
+  transition:0.3s;
+  box-shadow:0 0 20px rgba(0,0,0,0.5);
 }
 
-.card img {
-  width: 100%;
-  border-radius: 10px;
+.card:hover {
+  transform: scale(1.05);
+  box-shadow:0 0 25px #22c55e;
 }
 
 .btn {
-  display: block;
-  margin-top: 8px;
-  padding: 8px;
-  background: #22c55e;
-  color: black;
-  text-decoration: none;
-  border-radius: 6px;
+  display:block;
+  margin-top:10px;
+  padding:8px;
+  background: linear-gradient(45deg,#22c55e,#4ade80);
+  color:black;
+  border-radius:6px;
+  cursor:pointer;
 }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  color: gray;
+/* POPUP */
+.popup {
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:#020617;
+  padding:20px;
+  border-radius:15px;
+  display:none;
+  z-index:2000;
+  width:90%;
+  max-width:320px;
+  box-shadow:0 0 25px #22c55e;
 }
+
+.popup input, .popup select {
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border:none;
+  border-radius:6px;
+}
+
+.popup button {
+  width:100%;
+  padding:10px;
+  background:#22c55e;
+  border:none;
+  border-radius:6px;
+}
+
+.close {
+  float:right;
+  cursor:pointer;
+}
+
+/* ANIMATION */
+@keyframes glow {
+  from { box-shadow:0 0 5px #22c55e; }
+  to { box-shadow:0 0 20px #22c55e; }
+}
+
+.card {
+  animation: glow 2s infinite alternate;
+}
+
 </style>
-
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
-  <div class="menu-icon" onclick="toggleMenu()">☰</div>
-  <h1>Angel Official Store</h1>
+  <div class="menu-icon" onclick="openMenu()">☰</div>
+  <h1>ANGEL OFFICIAL STORE</h1>
 </header>
 
-<!-- SIDEBAR -->
+<div id="overlay" onclick="closeMenu()"></div>
+
 <div id="sidebar" class="sidebar">
-  <a href="#home" onclick="toggleMenu()">Home</a>
-  <a href="#games" onclick="toggleMenu()">Games</a>
-  <a href="#boosting" onclick="toggleMenu()">Social Media Boosting</a>
-  <a href="#ott" onclick="toggleMenu()">OTT Subscription</a>
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#games" onclick="closeMenu()">Games</a>
+  <a href="#boosting" onclick="closeMenu()">Boosting</a>
+  <a href="#ott" onclick="closeMenu()">OTT</a>
 </div>
 
-<!-- HOME -->
 <div id="home" class="hero">
-  <h2>Welcome to Angel Official Store</h2>
-  <p>Top-up • Boosting • OTT Services</p>
+  <h2>FAST & TRUSTED <span>TOP-UP STORE</span></h2>
+  <p>Instant Service • Secure Deals</p>
   <a class="cta" href="https://wa.me/919366808003">Order Now</a>
 </div>
 
-<!-- GAMES -->
 <div id="games" class="section">
   <h2>Games</h2>
-  <div class="games">
-
-    <div class="card">
-      <img src="https://via.placeholder.com/150">
-      <h3>Mobile Legends</h3>
-      <a class="btn" href="https://wa.me/919366808003?text=ML%20Topup">Buy</a>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/150">
-      <h3>Free Fire</h3>
-      <a class="btn" href="https://wa.me/919366808003?text=FF%20Topup">Buy</a>
-    </div>
-
+  <div class="grid">
+    <div class="card"><h3>Mobile Legends</h3><div class="btn" onclick="openForm('Mobile Legends')">Buy</div></div>
+    <div class="card"><h3>Free Fire</h3><div class="btn" onclick="openForm('Free Fire')">Buy</div></div>
   </div>
 </div>
 
-<!-- BOOSTING -->
 <div id="boosting" class="section">
   <h2>Social Media Boosting</h2>
-  <div class="games">
-
-    <div class="card">
-      <img src="https://via.placeholder.com/150">
-      <h3>Instagram Followers</h3>
-      <a class="btn" href="https://wa.me/919366808003?text=Instagram%20Boost">Order</a>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/150">
-      <h3>YouTube Subscribers</h3>
-      <a class="btn" href="https://wa.me/919366808003?text=YouTube%20Boost">Order</a>
-    </div>
-
+  <div class="grid">
+    <div class="card"><h3>Instagram</h3><div class="btn" onclick="openForm('Instagram Boost')">Order</div></div>
+    <div class="card"><h3>YouTube</h3><div class="btn" onclick="openForm('YouTube Boost')">Order</div></div>
   </div>
 </div>
 
-<!-- OTT -->
 <div id="ott" class="section">
   <h2>OTT Subscription</h2>
-  <div class="games">
-
-    <div class="card">
-      <img src="https://via.placeholder.com/150">
-      <h3>Netflix</h3>
-      <a class="btn" href="https://wa.me/919366808003?text=Netflix">Buy</a>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/150">
-      <h3>Amazon Prime</h3>
-      <a class="btn" href="https://wa.me/919366808003?text=Prime">Buy</a>
-    </div>
-
+  <div class="grid">
+    <div class="card"><h3>Netflix</h3><div class="btn" onclick="openForm('Netflix')">Buy</div></div>
+    <div class="card"><h3>Amazon Prime</h3><div class="btn" onclick="openForm('Prime')">Buy</div></div>
   </div>
 </div>
 
-<footer>
-  WhatsApp: +91 9366808003 <br>
-  © 2026 Angel Official Store
-</footer>
+<div id="popup" class="popup">
+  <span class="close" onclick="closeForm()">✖</span>
+  <h3 id="product"></h3>
+
+  <input id="name" placeholder="Your Name">
+  <input id="id" placeholder="ID / Username">
+  <input id="number" placeholder="WhatsApp Number">
+
+  <select id="plan">
+    <option>Basic Plan</option>
+    <option>Standard Plan</option>
+    <option>Premium Plan</option>
+  </select>
+
+  <button onclick="sendOrder()">Checkout</button>
+</div>
 
 <script>
-function toggleMenu() {
-  const menu = document.getElementById("sidebar");
-  menu.style.left = menu.style.left === "0px" ? "-250px" : "0px";
+let selectedProduct="";
+
+function openMenu(){
+  document.getElementById("sidebar").style.left="0";
+  document.getElementById("overlay").style.display="block";
+}
+
+function closeMenu(){
+  document.getElementById("sidebar").style.left="-250px";
+  document.getElementById("overlay").style.display="none";
+}
+
+function openForm(product){
+  selectedProduct=product;
+  document.getElementById("product").innerText=product;
+  document.getElementById("popup").style.display="block";
+}
+
+function closeForm(){
+  document.getElementById("popup").style.display="none";
+}
+
+function sendOrder(){
+  let name=document.getElementById("name").value;
+  let id=document.getElementById("id").value;
+  let number=document.getElementById("number").value;
+  let plan=document.getElementById("plan").value;
+
+  let msg=`Order:%0AProduct:${selectedProduct}%0AName:${name}%0AID:${id}%0ANumber:${number}%0APlan:${plan}`;
+
+  window.location.href="https://wa.me/919366808003?text="+msg;
 }
 </script>
 
