@@ -56,6 +56,9 @@
             // Create the final WhatsApp message including all details
             const message = `Hello Angel Official Store!%0A%0A✅ *Payment Completed!*%0AHere are my order details:%0A%0A🎮 Game: ${game}%0A📦 Package: ${pkg} (${price})%0A🆔 Player ID: ${playerId}%0A🌐 Zone ID: ${zoneId}%0A%0APlease verify my payment and process the top-up!`;
             
+            // --- THIS IS THE NEW LINE THAT CLEARS THE MEMORY ---
+            localStorage.clear();
+            
             // Redirect to your specific WhatsApp number
             const whatsappUrl = `https://wa.me/919383300728?text=${message}`;
             window.location.href = whatsappUrl;
