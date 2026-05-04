@@ -194,3 +194,28 @@ header h1 {
   margin:auto;
   padding:20px;
 }
+
+/* INPUT FIX */
+input {
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:6px;
+  border:none;
+}
+
+/* BUTTON FIX */
+.button {
+  width:100%;
+  padding:12px;
+  background:#22c55e;
+  text-align:center;
+  border-radius:6px;
+  margin-top:10px;
+}
+
+/* FIX MOBILE FULL WIDTH */
+body {
+  margin:0;
+  padding:0;
+}
