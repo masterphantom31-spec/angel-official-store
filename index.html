@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Angel Official Store</title>
@@ -8,48 +8,65 @@
 
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="menu-icon" onclick="openMenu()">☰</div>
   <h1>ANGEL OFFICIAL STORE</h1>
 </header>
 
+<!-- OVERLAY -->
 <div id="overlay" onclick="closeMenu()"></div>
 
+<!-- SIDEBAR -->
 <div id="sidebar" class="sidebar">
   <div>
     <a href="index.html">Home</a>
     <a href="games.html">Game Top-Ups</a>
     <a href="boosting.html">Boosting</a>
-    <a href="ott.html">OTT</a>
+    <a href="ott.html">OTT Subscription</a>
   </div>
+
   <div class="bottom-links">
-    <a href="#">Terms</a>
+    <a href="#">Terms & Conditions</a>
     <a href="#">Support</a>
   </div>
 </div>
 
-<div class="hero">
-  <h2>FAST & TRUSTED <span>STORE</span></h2>
+<!-- 🔥 BANNER (REPLACED HERO SECTION) -->
+<div class="banner">
+
+  <div class="slides" id="slides">
+    <img src="https://via.placeholder.com/800x250?text=Banner+1" class="slide">
+    <img src="https://via.placeholder.com/800x250?text=Banner+2" class="slide">
+    <img src="https://via.placeholder.com/800x250?text=Banner+3" class="slide">
+  </div>
+
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
 </div>
 
+<!-- MAIN CARDS -->
 <div class="grid">
-  <div class="card">
+
+  <a href="games.html" class="card">
     <img src="https://via.placeholder.com/300x200">
     <h3>Games</h3>
-    <a class="btn" href="games.html">Explore</a>
-  </div>
+  </a>
 
-  <div class="card">
+  <a href="boosting.html" class="card">
     <img src="https://via.placeholder.com/300x200">
     <h3>Boosting</h3>
-    <a class="btn" href="boosting.html">Explore</a>
-  </div>
+  </a>
 
-  <div class="card">
+  <a href="ott.html" class="card">
     <img src="https://via.placeholder.com/300x200">
     <h3>OTT</h3>
-    <a class="btn" href="ott.html">Explore</a>
-  </div>
+  </a>
+
 </div>
 
 <script src="script.js"></script>
