@@ -192,3 +192,94 @@ h2 {
     width: 35px;
     height: 35px;
 }
+
+/* --- Input Boxes (Player ID & Zone ID) --- */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.input-group input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #00ffcc;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+}
+
+/* --- Diamond Price Grid --- */
+.diamond-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.diamond-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.diamond-card:hover {
+    border-color: #00ffcc;
+    background: rgba(0, 255, 204, 0.05);
+}
+
+.diamond-card img {
+    width: 30px;
+    height: 30px;
+}
+
+.diamond-details .amount {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.diamond-details .price {
+    color: #00ffcc;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+/* --- Complete Order Button --- */
+#checkout-section {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+#order-now-btn {
+    background: linear-gradient(45deg, #00ffcc, #00b38f);
+    color: #000;
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 255, 204, 0.3);
+    transition: 0.3s;
+    width: 100%;
+}
+
+#order-now-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 255, 204, 0.5);
+}
