@@ -203,7 +203,36 @@
     </a>
 
     <script src="script.js"></script>
+<script>
+        const menuBtn = document.querySelector('.menu-toggle'); 
+        const nav = document.querySelector('nav');
+        
+        // Create dark background overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'menu-overlay';
+        document.body.appendChild(overlay);
 
+        // Open/Close toggle
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        // Close menu when clicking the dark area
+        overlay.addEventListener('click', () => {
+            nav.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        });
+    </script>
     
 </body>
 </html>
