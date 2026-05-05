@@ -77,3 +77,27 @@ function generateFakePurchase() {
 
 // Runs the fake purchase generator every 2500 milliseconds (2.5 seconds)
 setInterval(generateFakePurchase, 2500);
+
+const menuBtn = document.querySelector('.menu-toggle'); 
+const nav = document.querySelector('nav');
+const overlay = document.createElement('div');
+overlay.className = 'menu-overlay';
+document.body.appendChild(overlay);
+
+menuBtn.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    overlay.classList.toggle('active');
+});
+
+overlay.addEventListener('click', () => {
+    nav.classList.remove('active');
+    overlay.classList.remove('active');
+});
+
+const navLinks = document.querySelectorAll('nav ul li a');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+});
