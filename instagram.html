@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Services | Angel Official Store</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Special Category Tabs for Social Media */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 0 15px;
+        }
+        .cat-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+            flex: 1;
+            text-align: center;
+        }
+        .cat-btn.active {
+            background: rgba(0, 255, 204, 0.1);
+            border: 1px solid #00ffcc;
+            color: #00ffcc;
+        }
+        /* Hides grids that are not selected */
+        .grid-section {
+            display: none;
+        }
+        .grid-section.active {
+            display: grid;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="javascript:history.back()" style="color: #00ffcc; text-decoration: none; font-size: 24px; margin-right: 15px;">←</a>
+        <h1>Instagram Boost</h1>
+    </header>
+
+    <main>
+        <div class="category-tabs">
+            <button class="cat-btn active" onclick="switchCategory('followers', this)">Followers</button>
+            <button class="cat-btn" onclick="switchCategory('likes', this)">Likes</button>
+            <button class="cat-btn" onclick="switchCategory('views', this)">Views</button>
+        </div>
+
+        <section id="player-info-section">
+            <h2>1. Enter Target Link</h2>
+            <div class="input-group">
+                <input type="text" id="target-link" placeholder="Enter Instagram Profile Link" required style="width: 100%;">
+            </div>
+        </section>
+
+        <section id="diamond-selection">
+            <h2>2. Select Package</h2>
+            
+            <div class="diamond-grid grid-section active" id="grid-followers">
+                <div class="diamond-card" onclick="selectPackage(this, '100 Followers', '₹20')">
+                    <img src="ig-followers.png" alt="Followers">
+                    <div class="diamond-details"><p class="amount">100 Followers</p><p class="price">₹20</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '200 Followers', '₹35')">
+                    <img src="ig-followers.png" alt="Followers">
+                    <div class="diamond-details"><p class="amount">200 Followers</p><p class="price">₹35</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '500 Followers', '₹75')">
+                    <img src="ig-followers.png" alt="Followers">
+                    <div class="diamond-details"><p class="amount">500 Followers</p><p class="price">₹75</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '1K Followers', '₹150')">
+                    <img src="ig-followers.png" alt="Followers">
+                    <div class="diamond-details"><p class="amount">1K Followers</p><p class="price">₹150</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '2K Followers', '₹290')">
+                    <img src="ig-followers.png" alt="Followers">
+                    <div class="diamond-details"><p class="amount">2K Followers</p><p class="price">₹290</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '3K Followers', '₹425')">
+                    <img src="ig-followers.png" alt="Followers">
+                    <div class="diamond-details"><p class="amount">3K Followers</p><p class="price">₹425</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '4K Followers', '₹550')">
+                    <img src="ig-followers.png" alt="Followers">
+                    <div class="diamond-details"><p class="amount">4K Followers</p><p class="price">₹550</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '5K Followers', '₹665')">
+                    <img src="ig-followers.png" alt="Followers">
+                    <div class="diamond-details"><p class="amount">5K Followers</p><p class="price">₹665</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '6K Followers', '₹770')">
+                    <img src="ig-followers.png" alt="Followers">
+                    <div class="diamond-details"><p class="amount">6K Followers</p><p class="price">₹770</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '7K Followers', '₹875')">
+                    <img src="ig-followers.png" alt="Followers">
+                    <div class="diamond-details"><p class="amount">7K Followers</p><p class="price">₹875</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '8K Followers', '₹965')">
+                    <img src="ig-followers.png" alt="Followers">
+                    <div class="diamond-details"><p class="amount">8K Followers</p><p class="price">₹965</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '9K Followers', '₹1,055')">
+                    <img src="ig-followers.png" alt="Followers">
+                    <div class="diamond-details"><p class="amount">9K Followers</p><p class="price">₹1,055</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '10K Followers', '₹1,130')">
+                    <img src="ig-followers.png" alt="Followers">
+                    <div class="diamond-details"><p class="amount">10K Followers</p><p class="price">₹1,130</p></div>
+                </div>
+            </div>
+
+            <div class="diamond-grid grid-section" id="grid-likes">
+                <div class="diamond-card" onclick="selectPackage(this, '100 Likes', '₹10')">
+                    <img src="ig-likes.png" alt="Likes">
+                    <div class="diamond-details"><p class="amount">100 Likes</p><p class="price">₹10</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '500 Likes', '₹20')">
+                    <img src="ig-likes.png" alt="Likes">
+                    <div class="diamond-details"><p class="amount">500 Likes</p><p class="price">₹20</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '1K Likes', '₹30')">
+                    <img src="ig-likes.png" alt="Likes">
+                    <div class="diamond-details"><p class="amount">1K Likes</p><p class="price">₹30</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '2K Likes', '₹55')">
+                    <img src="ig-likes.png" alt="Likes">
+                    <div class="diamond-details"><p class="amount">2K Likes</p><p class="price">₹55</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '3K Likes', '₹80')">
+                    <img src="ig-likes.png" alt="Likes">
+                    <div class="diamond-details"><p class="amount">3K Likes</p><p class="price">₹80</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '4K Likes', '₹110')">
+                    <img src="ig-likes.png" alt="Likes">
+                    <div class="diamond-details"><p class="amount">4K Likes</p><p class="price">₹110</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '5K Likes', '₹140')">
+                    <img src="ig-likes.png" alt="Likes">
+                    <div class="diamond-details"><p class="amount">5K Likes</p><p class="price">₹140</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '6K Likes', '₹180')">
+                    <img src="ig-likes.png" alt="Likes">
+                    <div class="diamond-details"><p class="amount">6K Likes</p><p class="price">₹180</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '7K Likes', '₹220')">
+                    <img src="ig-likes.png" alt="Likes">
+                    <div class="diamond-details"><p class="amount">7K Likes</p><p class="price">₹220</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '8K Likes', '₹260')">
+                    <img src="ig-likes.png" alt="Likes">
+                    <div class="diamond-details"><p class="amount">8K Likes</p><p class="price">₹260</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '9K Likes', '₹300')">
+                    <img src="ig-likes.png" alt="Likes">
+                    <div class="diamond-details"><p class="amount">9K Likes</p><p class="price">₹300</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '10K Likes', '₹350')">
+                    <img src="ig-likes.png" alt="Likes">
+                    <div class="diamond-details"><p class="amount">10K Likes</p><p class="price">₹350</p></div>
+                </div>
+            </div>
+
+            <div class="diamond-grid grid-section" id="grid-views">
+                <div class="diamond-card" onclick="selectPackage(this, '1K Views', '₹10')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">1K Views</p><p class="price">₹10</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '2K Views', '₹15')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">2K Views</p><p class="price">₹15</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '3K Views', '₹20')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">3K Views</p><p class="price">₹20</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '4K Views', '₹22')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">4K Views</p><p class="price">₹22</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '5K Views', '₹25')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">5K Views</p><p class="price">₹25</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '6K Views', '₹30')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">6K Views</p><p class="price">₹30</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '7K Views', '₹35')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">7K Views</p><p class="price">₹35</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '8K Views', '₹40')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">8K Views</p><p class="price">₹40</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '9K Views', '₹45')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">9K Views</p><p class="price">₹45</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '10K Views', '₹50')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">10K Views</p><p class="price">₹50</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '20K Views', '₹60')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">20K Views</p><p class="price">₹60</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '30K Views', '₹70')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">30K Views</p><p class="price">₹70</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '40K Views', '₹80')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">40K Views</p><p class="price">₹80</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '50K Views', '₹90')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">50K Views</p><p class="price">₹90</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '60K Views', '₹100')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">60K Views</p><p class="price">₹100</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '70K Views', '₹110')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">70K Views</p><p class="price">₹110</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '80K Views', '₹120')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">80K Views</p><p class="price">₹120</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '90K Views', '₹130')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">90K Views</p><p class="price">₹130</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '100K Views', '₹140')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">100K Views</p><p class="price">₹140</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '200K Views', '₹180')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">200K Views</p><p class="price">₹180</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '300K Views', '₹220')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">300K Views</p><p class="price">₹220</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '400K Views', '₹260')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">400K Views</p><p class="price">₹260</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '500K Views', '₹300')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">500K Views</p><p class="price">₹300</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '600K Views', '₹325')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">600K Views</p><p class="price">₹325</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '700K Views', '₹350')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">700K Views</p><p class="price">₹350</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '800K Views', '₹370')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">800K Views</p><p class="price">₹370</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '900K Views', '₹385')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">900K Views</p><p class="price">₹385</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '1M Views', '₹400')">
+                    <img src="ig-views.png" alt="Views">
+                    <div class="diamond-details"><p class="amount">1M Views</p><p class="price">₹400</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="checkout-section">
+            <button id="order-now-btn">Complete Order Now</button>
+        </section>
+    </main>
+
+    <script>
+        let selectedPackage = "";
+        let selectedPrice = "";
+        const targetInput = document.getElementById('target-link');
+
+        function switchCategory(category, buttonElement) {
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+            buttonElement.classList.add('active');
+
+            document.querySelectorAll('.grid-section').forEach(grid => grid.classList.remove('active'));
+            document.getElementById('grid-' + category).classList.add('active');
+
+            document.querySelectorAll('.diamond-card').forEach(card => card.classList.remove('selected'));
+            selectedPackage = "";
+            selectedPrice = "";
+
+            if (category === 'followers') {
+                targetInput.placeholder = "Enter Instagram Profile Link";
+            } else {
+                targetInput.placeholder = "Enter Post / Reel Link";
+            }
+        }
+
+        function selectPackage(card, packageName, price) {
+            document.querySelectorAll('.diamond-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            selectedPackage = packageName;
+            selectedPrice = price;
+        }
+
+        document.getElementById('order-now-btn').addEventListener('click', () => {
+            const linkValue = targetInput.value.trim();
+
+            if (!linkValue) {
+                alert("Please enter the target link!");
+                return;
+            }
+            if (!selectedPackage) {
+                alert("Please select a package!");
+                return;
+            }
+
+            localStorage.setItem("order_game", "Instagram");
+            localStorage.setItem("order_playerId", linkValue); 
+            localStorage.setItem("order_zoneId", "N/A");       
+            localStorage.setItem("order_package", selectedPackage);
+            localStorage.setItem("order_price", selectedPrice);
+
+            window.location.href = "payment.html";
+        });
+    </script>
+</body>
+</html>
