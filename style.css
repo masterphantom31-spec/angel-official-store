@@ -435,3 +435,23 @@ img[src*="whatsapp"] {
 .banner img, .banner-container img, .slider img, .carousel img, marquee img {
     border-radius: 16px !important; 
 }
+
+
+/* --- Fix for Uneven Logo Sizes (WhatsApp Fix) --- */
+.icon-card img {
+    width: 65% !important;        /* Shrinks the logo slightly so it has breathing room */
+    height: auto !important;
+    aspect-ratio: 1/1 !important; /* Keeps it a perfect square */
+    object-fit: contain !important; /* Ensures the whole logo is visible without stretching */
+    margin: 10px auto !important;  /* Centers it and adds space at the top */
+    display: block !important;
+    border-radius: 12px !important; /* Gives the logo itself smooth corners to match the card */
+}
+
+.icon-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 15px 5px !important; /* Adds internal space so logos don't touch the card borders */
+}
