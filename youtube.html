@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify Premium | Angel Official Store</title>
+    <title>YouTube Premium | Angel Official Store</title>
     <link rel="stylesheet" href="style.css">
     <style>
         /* Special Row-by-Row Layout for OTT Packages */
@@ -19,7 +19,7 @@
             justify-content: space-between;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 15px 20px;
+            padding: 18px 20px;
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -48,12 +48,12 @@
         }
         .ott-text h3 {
             margin: 0;
-            font-size: 15px;
+            font-size: 16px;
             color: #ffffff;
             letter-spacing: 0.5px;
         }
 
-        /* Right Side: Price and Plan Type */
+        /* Right Side: Price */
         .ott-right {
             text-align: right;
         }
@@ -61,12 +61,6 @@
             font-size: 18px;
             color: #00ffcc;
             font-weight: bold;
-        }
-        .ott-profile-type {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.5);
-            margin-top: 4px;
-            text-transform: capitalize;
         }
 
         /* Email Input Styling */
@@ -91,14 +85,14 @@
 
     <header>
         <a href="javascript:history.back()" style="color: #00ffcc; text-decoration: none; font-size: 24px; margin-right: 15px;">←</a>
-        <h1>Spotify Premium</h1>
+        <h1>YouTube Premium</h1>
     </header>
 
     <main>
         <section id="player-info-section" style="margin-bottom: 25px; padding: 0 15px;">
             <h2 style="font-size: 18px; margin-bottom: 10px; color: #fff;">1. Enter Account Details</h2>
             <div class="input-group">
-                <input type="email" id="email-input" class="custom-input" placeholder="Enter Email (for 'Own Mail' plans)" required>
+                <input type="email" id="email-input" class="custom-input" placeholder="Enter your Gmail address" required>
             </div>
         </section>
 
@@ -107,81 +101,39 @@
             
             <div class="ott-list">
                 
-                <div class="ott-card" onclick="selectPackage(this, '2 Months • Fresh Mail (Standard)', '₹49')">
+                <div class="ott-card" onclick="selectPackage(this, '1 Month • Own Mail', '₹35')">
                     <div class="ott-info">
-                        <img src="spotify-logo.png" alt="Spotify">
-                        <div class="ott-text">
-                            <h3>2 Months • Fresh Mail</h3>
-                        </div>
-                    </div>
-                    <div class="ott-right">
-                        <div class="ott-price">₹49</div>
-                        <div class="ott-profile-type">(Standard)</div>
-                    </div>
-                </div>
-
-                <div class="ott-card" onclick="selectPackage(this, '1 Month • Provided Mail (Platinum)', '₹110')">
-                    <div class="ott-info">
-                        <img src="spotify-logo.png" alt="Spotify">
-                        <div class="ott-text">
-                            <h3>1 Month • Provided Mail</h3>
-                        </div>
-                    </div>
-                    <div class="ott-right">
-                        <div class="ott-price">₹110</div>
-                        <div class="ott-profile-type">(Platinum)</div>
-                    </div>
-                </div>
-
-                <div class="ott-card" onclick="selectPackage(this, '1 Month • Own Mail (Platinum)', '₹199')">
-                    <div class="ott-info">
-                        <img src="spotify-logo.png" alt="Spotify">
+                        <img src="youtube-logo.png" alt="YouTube">
                         <div class="ott-text">
                             <h3>1 Month • Own Mail</h3>
                         </div>
                     </div>
                     <div class="ott-right">
-                        <div class="ott-price">₹199</div>
-                        <div class="ott-profile-type">(Platinum)</div>
+                        <div class="ott-price">₹35</div>
                     </div>
                 </div>
 
-                <div class="ott-card" onclick="selectPackage(this, '3 Months • Own Mail (Platinum)', '₹599')">
+                <div class="ott-card" onclick="selectPackage(this, '6 Months • Own Mail', '₹210')">
                     <div class="ott-info">
-                        <img src="spotify-logo.png" alt="Spotify">
-                        <div class="ott-text">
-                            <h3>3 Months • Own Mail</h3>
-                        </div>
-                    </div>
-                    <div class="ott-right">
-                        <div class="ott-price">₹599</div>
-                        <div class="ott-profile-type">(Platinum)</div>
-                    </div>
-                </div>
-
-                <div class="ott-card" onclick="selectPackage(this, '6 Months • Own Mail (Platinum)', '₹959')">
-                    <div class="ott-info">
-                        <img src="spotify-logo.png" alt="Spotify">
+                        <img src="youtube-logo.png" alt="YouTube">
                         <div class="ott-text">
                             <h3>6 Months • Own Mail</h3>
                         </div>
                     </div>
                     <div class="ott-right">
-                        <div class="ott-price">₹959</div>
-                        <div class="ott-profile-type">(Platinum)</div>
+                        <div class="ott-price">₹210</div>
                     </div>
                 </div>
 
-                <div class="ott-card" onclick="selectPackage(this, '1 Year • Own Mail (Platinum)', '₹1399')">
+                <div class="ott-card" onclick="selectPackage(this, '1 Year • Own Mail', '₹420')">
                     <div class="ott-info">
-                        <img src="spotify-logo.png" alt="Spotify">
+                        <img src="youtube-logo.png" alt="YouTube">
                         <div class="ott-text">
                             <h3>1 Year • Own Mail</h3>
                         </div>
                     </div>
                     <div class="ott-right">
-                        <div class="ott-price">₹1399</div>
-                        <div class="ott-profile-type">(Platinum)</div>
+                        <div class="ott-price">₹420</div>
                     </div>
                 </div>
 
@@ -207,9 +159,8 @@
         document.getElementById('order-now-btn').addEventListener('click', () => {
             const emailValue = document.getElementById('email-input').value.trim();
 
-            // Require email if they selected an "Own Mail" package
-            if (selectedPackage.includes("Own Mail") && !emailValue) {
-                alert("Please enter your Email address for the 'Own Mail' upgrade!");
+            if (!emailValue) {
+                alert("Please enter your Gmail address!");
                 return;
             }
 
@@ -219,8 +170,8 @@
             }
 
             // Save details to LocalStorage
-            localStorage.setItem("order_game", "Spotify");
-            localStorage.setItem("order_playerId", emailValue ? emailValue : "Fresh/Provided Mail (No Email Given)"); 
+            localStorage.setItem("order_game", "YouTube Premium");
+            localStorage.setItem("order_playerId", emailValue); 
             localStorage.setItem("order_zoneId", "N/A");       
             localStorage.setItem("order_package", selectedPackage);
             localStorage.setItem("order_price", selectedPrice);
