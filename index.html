@@ -6,7 +6,7 @@
     <title>Angel Official Store</title>
     <link rel="stylesheet" href="style.css">
     
-    <style>
+<style>
         nav { 
             display: flex !important; 
             flex-direction: column !important; 
@@ -49,7 +49,27 @@
         nav .menu-bottom a:hover {
             color: #00ffcc !important;
         }
+
+        /* --- THE MISSING CLICKABLE DARK BACKGROUND --- */
+        .menu-overlay {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: rgba(0, 0, 0, 0.7) !important; /* Dark tint */
+            backdrop-filter: blur(5px) !important;    /* Blurs the background */
+            z-index: 1500 !important;                 /* Puts it behind the menu, but over the site */
+            display: none;                            /* Hidden until clicked */
+        }
+        .menu-overlay.active {
+            display: block !important;                /* Wakes up when menu opens */
+        }
     </style>
+
+
+
+    
 </head>
 <body>
 
