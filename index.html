@@ -5,6 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angel Official Store</title>
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        nav { 
+            display: flex !important; 
+            flex-direction: column !important; 
+            justify-content: space-between !important; 
+            padding-top: 80px !important; 
+            padding-bottom: 40px !important;
+        }
+        nav ul.menu-top { 
+            list-style: none !important; 
+            padding: 0 !important; 
+            margin: 0 !important; 
+            display: block !important; 
+            width: 100% !important;
+        }
+        nav ul.menu-top li { 
+            display: block !important; 
+            width: 100% !important;
+        }
+        nav ul.menu-top li a { 
+            display: block !important; 
+            color: #ffffff !important; 
+            font-size: 18px !important; 
+            padding: 18px 25px !important; 
+            text-decoration: none !important; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        nav .menu-bottom { 
+            width: 100% !important; 
+            text-align: center !important; 
+        }
+        nav .menu-bottom a { 
+            display: block !important; 
+            color: rgba(255, 255, 255, 0.5) !important; 
+            font-size: 15px !important; 
+            text-decoration: none !important; 
+            visibility: visible !important;
+        }
+        nav .menu-bottom a:hover {
+            color: #00ffcc !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -203,7 +248,7 @@
             overlay.classList.remove('active');
         });
 
-        // Close menu when ANY link is clicked (updated to nav a)
+        // Close menu when ANY link is clicked
         const navLinks = document.querySelectorAll('nav a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
