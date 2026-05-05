@@ -455,3 +455,77 @@ img[src*="whatsapp"] {
     justify-content: center !important;
     padding: 15px 5px !important; /* Adds internal space so logos don't touch the card borders */
 }
+
+
+/* --- Ultra-Premium Sidebar Menu --- */
+nav {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100vh;
+    background: rgba(15, 15, 15, 0.85) !important; /* Premium Glass Transparency */
+    backdrop-filter: blur(15px) !important; /* Heavy blur effect */
+    border-right: 1px solid rgba(0, 255, 204, 0.2);
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2000;
+    
+    /* This Flexbox shoves the Terms to the bottom */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important; 
+    padding-top: 80px;
+    padding-bottom: 30px;
+}
+
+nav.active {
+    left: 0;
+}
+
+nav ul.menu-top {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* Makes the ENTIRE row clickable & forces white text */
+nav ul.menu-top li a {
+    display: block !important;
+    width: 100% !important;
+    padding: 18px 25px !important;
+    color: #ffffff !important; 
+    text-decoration: none !important;
+    font-size: 17px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Premium tap animation */
+nav ul.menu-top li a:hover, nav ul.menu-top li a:active {
+    background: rgba(0, 255, 204, 0.1) !important;
+    color: #00ffcc !important;
+    padding-left: 32px !important; 
+}
+
+/* Terms strictly at the bottom */
+nav .menu-bottom {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 15px;
+}
+
+nav .menu-bottom a {
+    display: block !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    padding: 15px !important;
+    transition: 0.3s;
+}
+
+nav .menu-bottom a:hover {
+    color: #00ffcc !important;
+}
