@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normal Starlight | Angel Official Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" style="color: #00ffcc; text-decoration: none; font-size: 24px; margin-right: 15px;">←</a>
+        <h1>Angel Official Store - Starlight</h1>
+    </header>
+
+    <main>
+        <section id="player-info-section">
+            <h2>1. Enter Account Details</h2>
+            <div class="input-group">
+                <input type="number" id="player-id" placeholder="Enter Player ID" required>
+                <input type="number" id="zone-id" placeholder="(Server ID)" required>
+            </div>
+        </section>
+
+        <section id="diamond-selection">
+            <h2>2. Selected Item</h2>
+            <div class="diamond-grid" id="diamond-list-container">
+                
+                <div class="diamond-card selected" style="border: 2px solid #00ffcc; background: rgba(0, 255, 204, 0.1);">
+                    <img src="starlight-normal.png" alt="Normal Starlight Pass">
+                    <div class="diamond-details">
+                        <p class="amount">Normal Starlight Pass</p>
+                        <p class="price">₹150</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="checkout-section">
+            <button id="order-now-btn">Complete Order Now</button>
+        </section>
+    </main>
+
+    <script>
+        const orderBtn = document.getElementById('order-now-btn');
+
+        // Since this page is only for one item, we set the price automatically
+        const selectedPackage = "Normal Starlight Pass";
+        const selectedPrice = "₹240";
+
+        // --- Go to Payment Page Logic ---
+        orderBtn.addEventListener('click', () => {
+            const playerId = document.getElementById('player-id').value;
+            const zoneId = document.getElementById('zone-id').value;
+
+            // Strict Validation: Stops them if ID or Server is missing
+            if (!playerId || !zoneId) {
+                alert("Please enter both your Player ID and Server ID!");
+                return;
+            }
+
+            // Save details to the browser's temporary memory
+            localStorage.setItem("order_game", "Normal Starlight");
+            localStorage.setItem("order_playerId", playerId);
+            localStorage.setItem("order_zoneId", zoneId);
+            localStorage.setItem("order_package", selectedPackage);
+            localStorage.setItem("order_price", selectedPrice);
+
+            // Redirect to your exact QR payment page
+            window.location.href = "payment.html";
+        });
+    </script>
+    
+</body>
+</html>
