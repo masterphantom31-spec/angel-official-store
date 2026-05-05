@@ -419,6 +419,18 @@ img[src*="whatsapp"] {
     overflow: hidden !important;    /* Forces the moving images to respect the rounded edges */
 }
 
+/* --- Premium Banner Highlight Glow --- */
+.banner, .banner-container, .slider, .carousel, marquee {
+    /* Creates the soft glowing aura behind the banner */
+    box-shadow: 0px 0px 25px rgba(0, 255, 170, 0.25) !important; 
+    
+    /* Adds a sleek, dark glass background behind the moving images */
+    background-color: rgba(20, 20, 20, 0.6) !important; 
+    
+    /* Adds a tiny, premium glass reflection border */
+    border: 1px solid rgba(255, 255, 255, 0.08) !important; 
+}
+
 /* Make sure the images inside also have smooth corners */
 .banner img, .banner-container img, .slider img, .carousel img, marquee img {
     border-radius: 16px !important; 
