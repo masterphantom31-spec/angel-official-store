@@ -410,3 +410,16 @@ img[src*="whatsapp"] {
     width: 100% !important;         /* Fills the green button nicely */
     height: auto !important;
 }
+
+/* --- Premium Floating Moving Banner Fix --- */
+.banner, .banner-container, .slider, .carousel, marquee {
+    width: 92% !important;          /* Pulls the banner away from the left and right edges */
+    margin: 15px auto !important;   /* Centers it perfectly so the gaps are even on both sides */
+    border-radius: 16px !important; /* Gives the outer box smooth, premium rounded corners */
+    overflow: hidden !important;    /* Forces the moving images to respect the rounded edges */
+}
+
+/* Make sure the images inside also have smooth corners */
+.banner img, .banner-container img, .slider img, .carousel img, marquee img {
+    border-radius: 16px !important; 
+}
