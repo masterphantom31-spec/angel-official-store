@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Services | Angel Official Store</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Special Category Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 15px;
+        }
+        .cat-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 12px 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+            flex: 1;
+            text-align: center;
+        }
+        .cat-btn.active {
+            background: rgba(0, 255, 204, 0.1);
+            border: 1px solid #00ffcc;
+            color: #00ffcc;
+        }
+        /* Grid display logic */
+        .grid-section {
+            display: none;
+        }
+        .grid-section.active {
+            display: grid;
+        }
+        .custom-input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .custom-input:focus {
+            border-color: #00ffcc;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="javascript:history.back()" style="color: #00ffcc; text-decoration: none; font-size: 24px; margin-right: 15px;">←</a>
+        <h1>Telegram Boost</h1>
+    </header>
+
+    <main>
+        <section id="player-info-section" style="margin-bottom: 10px; padding: 0 15px;">
+            <h2 style="font-size: 18px; margin-bottom: 10px; color: #fff;">1. Enter Target Link</h2>
+            <div class="input-group">
+                <input type="text" id="tg-link" class="custom-input" placeholder="Enter Group / Channel Link" required>
+            </div>
+        </section>
+
+        <div class="category-tabs">
+            <button class="cat-btn active" onclick="switchCategory('group', this)">Group Members</button>
+            <button class="cat-btn" onclick="switchCategory('channel', this)">Channel Members</button>
+        </div>
+
+        <section id="diamond-selection">
+            <h2 style="padding: 0 15px; font-size: 18px; color: #fff;">2. Select Package</h2>
+
+            <div class="diamond-grid grid-section active" id="grid-group">
+                <div class="diamond-card" onclick="selectPackage(this, '100 Group Members', '₹20')">
+                    <img src="telegram-icon.png" alt="Telegram">
+                    <div class="diamond-details"><p class="amount">100 Members</p><p class="price">₹20</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '200 Group Members', '₹35')">
+                    <img src="telegram-icon.png" alt="Telegram">
+                    <div class="diamond-details"><p class="amount">200 Members</p><p class="price">₹35</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '500 Group Members', '₹75')">
+                    <img src="telegram-icon.png" alt="Telegram">
+                    <div class="diamond-details"><p class="amount">500 Members</p><p class="price">₹75</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '1K Group Members', '₹150')">
+                    <img src="telegram-icon.png" alt="Telegram">
+                    <div class="diamond-details"><p class="amount">1K Members</p><p class="price">₹150</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '2K Group Members', '₹290')">
+                    <img src="telegram-icon.png" alt="Telegram">
+                    <div class="diamond-details"><p class="amount">2K Members</p><p class="price">₹290</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '5K Group Members', '₹665')">
+                    <img src="telegram-icon.png" alt="Telegram">
+                    <div class="diamond-details"><p class="amount">5K Members</p><p class="price">₹665</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '10K Group Members', '₹1,130')">
+                    <img src="telegram-icon.png" alt="Telegram">
+                    <div class="diamond-details"><p class="amount">10K Members</p><p class="price">₹1,130</p></div>
+                </div>
+            </div>
+
+            <div class="diamond-grid grid-section" id="grid-channel">
+                <div class="diamond-card" onclick="selectPackage(this, '100 Channel Members', '₹20')">
+                    <img src="telegram-icon.png" alt="Telegram">
+                    <div class="diamond-details"><p class="amount">100 Members</p><p class="price">₹20</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '200 Channel Members', '₹35')">
+                    <img src="telegram-icon.png" alt="Telegram">
+                    <div class="diamond-details"><p class="amount">200 Members</p><p class="price">₹35</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '500 Channel Members', '₹75')">
+                    <img src="telegram-icon.png" alt="Telegram">
+                    <div class="diamond-details"><p class="amount">500 Members</p><p class="price">₹75</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '1K Channel Members', '₹150')">
+                    <img src="telegram-icon.png" alt="Telegram">
+                    <div class="diamond-details"><p class="amount">1K Members</p><p class="price">₹150</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '2K Channel Members', '₹290')">
+                    <img src="telegram-icon.png" alt="Telegram">
+                    <div class="diamond-details"><p class="amount">2K Members</p><p class="price">₹290</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '5K Channel Members', '₹665')">
+                    <img src="telegram-icon.png" alt="Telegram">
+                    <div class="diamond-details"><p class="amount">5K Members</p><p class="price">₹665</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '10K Channel Members', '₹1,130')">
+                    <img src="telegram-icon.png" alt="Telegram">
+                    <div class="diamond-details"><p class="amount">10K Members</p><p class="price">₹1,130</p></div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="checkout-section" style="margin-top: 30px;">
+            <button id="order-now-btn">Complete Order Now</button>
+        </section>
+    </main>
+
+    <script>
+        let selectedPackage = "";
+        let selectedPrice = "";
+
+        function switchCategory(category, buttonElement) {
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+            buttonElement.classList.add('active');
+
+            document.querySelectorAll('.grid-section').forEach(grid => grid.classList.remove('active'));
+            document.getElementById('grid-' + category).classList.add('active');
+
+            // Reset selection when switching tabs
+            document.querySelectorAll('.diamond-card').forEach(c => c.classList.remove('selected'));
+            selectedPackage = "";
+            selectedPrice = "";
+        }
+
+        function selectPackage(card, packageName, price) {
+            document.querySelectorAll('.diamond-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            selectedPackage = packageName;
+            selectedPrice = price;
+        }
+
+        document.getElementById('order-now-btn').addEventListener('click', () => {
+            const linkValue = document.getElementById('tg-link').value.trim();
+
+            if (!linkValue) {
+                alert("Please enter the Group or Channel link!");
+                return;
+            }
+            if (!selectedPackage) {
+                alert("Please select a package!");
+                return;
+            }
+
+            localStorage.setItem("order_game", "Telegram Boost");
+            localStorage.setItem("order_playerId", linkValue); 
+            localStorage.setItem("order_zoneId", "N/A");       
+            localStorage.setItem("order_package", selectedPackage);
+            localStorage.setItem("order_price", selectedPrice);
+
+            window.location.href = "payment.html";
+        });
+    </script>
+</body>
+</html>
