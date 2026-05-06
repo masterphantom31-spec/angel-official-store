@@ -277,6 +277,184 @@
             });
         });
     </script>
+
+    <style>
+        .payment-marquee-container {
+            background: rgba(10, 10, 10, 0.95);
+            border-top: 1px solid rgba(0, 255, 204, 0.1);
+            padding: 25px 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .payment-marquee-title {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .marquee-wrapper {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-track {
+            display: flex;
+            align-items: center;
+            /* This animation controls the speed. Change 15s to make it faster or slower */
+            animation: scroll-marquee 15s linear infinite;
+        }
+
+        /* Pauses the scrolling when a user hovers over it */
+        .marquee-wrapper:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        .payment-logo {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 160px; /* Space between logos */
+        }
+
+        .payment-logo img {
+            height: 30px; /* Adjust based on your images */
+            max-width: 100px;
+            object-fit: contain;
+            /* Premium effect: makes them grey, then colorful on hover */
+            filter: grayscale(100%) opacity(0.6);
+            transition: all 0.3s ease;
+        }
+
+        .payment-logo img:hover {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.1);
+        }
+
+        /* The magic that makes it an endless loop */
+        @keyframes scroll-marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+    </style>
+
+    <div class="payment-marquee-container">
+        <div class="payment-marquee-title">Secure Payment Methods</div>
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                
+                <div class="payment-logo"><img src="upi-logo.png" alt="UPI"></div>
+                <div class="payment-logo"><img src="fampay-logo.png" alt="FamPay"></div>
+                <div class="payment-logo"><img src="gpay-logo.png" alt="Google Pay"></div>
+                <div class="payment-logo"><img src="paytm-logo.png" alt="Paytm"></div>
+                <div class="payment-logo"><img src="navi-logo.png" alt="Navi"></div>
+                
+                <div class="payment-logo"><img src="upi-logo.png" alt="UPI"></div>
+                <div class="payment-logo"><img src="fampay-logo.png" alt="FamPay"></div>
+                <div class="payment-logo"><img src="gpay-logo.png" alt="Google Pay"></div>
+                <div class="payment-logo"><img src="paytm-logo.png" alt="Paytm"></div>
+                <div class="payment-logo"><img src="navi-logo.png" alt="Navi"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Footer Styles */
+        .premium-footer {
+            background: rgba(10, 10, 10, 0.8);
+            border-top: 1px solid rgba(0, 255, 204, 0.2);
+            padding: 40px 20px 20px;
+            margin-top: 50px;
+            color: #ffffff;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        .footer-column h3 {
+            color: #00ffcc;
+            font-size: 16px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .footer-column p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0 0 10px;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .footer-column ul li a:hover {
+            color: #00ffcc;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+    </style>
+
+    <footer class="premium-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Angel Official Store</h3>
+                <p>Your premium destination for ultra-fast digital assets, OTT subscriptions, and professional social media growth services.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Working Details</h3>
+                <p><strong>Support:</strong> 24/7 Customer Service</p>
+                <p><strong>Delivery:</strong> Instant & Secure processing via WhatsApp</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Angel Official Store. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
     
 </body>
 </html>
