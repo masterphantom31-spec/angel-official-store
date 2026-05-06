@@ -92,14 +92,69 @@
     </nav>
 
     <main>
-        <section id="poster-slider">
-            <div class="slider-container">
-                <img src="poster1.jpg" alt="Promo Poster 1" class="slide">
-                <img src="poster2.jpg" alt="Promo Poster 2" class="slide">
-                <img src="poster3.jpg" alt="Promo Poster 3" class="slide">
-                <img src="poster4.jpg" alt="Promo Poster 4" class="slide">
-            </div>
-        </section>
+
+        <style>
+        .hero-banner-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0;
+            background: transparent;
+        }
+        
+        .hero-marquee-track {
+            display: flex;
+            width: max-content;
+            /* Adjust the 20s to make the banner slide faster or slower */
+            animation: scroll-hero 20s linear infinite;
+        }
+        
+        /* Pauses the banner if they hold their finger on it */
+        .hero-banner-container:hover .hero-marquee-track {
+            animation-play-state: paused;
+        }
+
+        .hero-slide {
+            width: 85vw; /* Shows 85% of the banner so the next one peeks in */
+            max-width: 600px;
+            flex-shrink: 0;
+            margin: 0 10px; /* Small gap between banners */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* The seamless loop magic */
+        @keyframes scroll-hero {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+    </style>
+
+    <section class="hero-banner-container">
+        <div class="hero-marquee-track">
+            
+            <div class="hero-slide"><img src="banner1.png" alt="Promo 1"></div>
+            <div class="hero-slide"><img src="banner2.png" alt="Promo 2"></div>
+            <div class="hero-slide"><img src="banner3.png" alt="Promo 3"></div>
+            <div class="hero-slide"><img src="banner4.png" alt="Promo 4"></div>
+            
+            <div class="hero-slide"><img src="banner1.png" alt="Promo 1"></div>
+            <div class="hero-slide"><img src="banner2.png" alt="Promo 2"></div>
+            <div class="hero-slide"><img src="banner3.png" alt="Promo 3"></div>
+            <div class="hero-slide"><img src="banner4.png" alt="Promo 4"></div>
+
+        </div>
+    </section>
 
         <section id="live-purchase-bar">
             <div id="purchase-notification">
