@@ -35,10 +35,19 @@ header {
 }
 
 header h1 {
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 1px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    margin: 0;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ffffff 0%, #00ffcc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 4px 20px rgba(0, 255, 204, 0.3);
 }
+
+
 
 /* --- Hidden Side Menu --- */
 #side-menu {
