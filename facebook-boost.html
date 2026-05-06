@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Services | Angel Official Store</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .section-title {
+            color: #fff;
+            font-size: 18px;
+            margin: 25px 15px 15px 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .custom-input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .custom-input:focus {
+            border-color: #00ffcc;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="javascript:history.back()" style="color: #00ffcc; text-decoration: none; font-size: 24px; margin-right: 15px;">←</a>
+        <h1>Facebook Boost</h1>
+    </header>
+
+    <main>
+        <section id="player-info-section" style="margin-bottom: 20px; padding: 0 15px;">
+            <h2 style="font-size: 18px; margin-bottom: 10px; color: #fff;">1. Enter Target Link</h2>
+            <div class="input-group">
+                <input type="url" id="fb-link" class="custom-input" placeholder="Enter your Facebook Link" required>
+            </div>
+        </section>
+
+        <section id="diamond-selection">
+            <h2 style="padding: 0 15px; font-size: 18px; color: #fff;">2. Select Package</h2>
+
+            <h3 class="section-title">Profile Followers</h3>
+            <div class="diamond-grid">
+                <div class="diamond-card" onclick="selectPackage(this, '100 Profile Followers', '₹20')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">100 Followers</p><p class="price">₹20</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '200 Profile Followers', '₹35')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">200 Followers</p><p class="price">₹35</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '500 Profile Followers', '₹75')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">500 Followers</p><p class="price">₹75</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '1K Profile Followers', '₹150')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">1K Followers</p><p class="price">₹150</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '2K Profile Followers', '₹290')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">2K Followers</p><p class="price">₹290</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '3K Profile Followers', '₹425')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">3K Followers</p><p class="price">₹425</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '4K Profile Followers', '₹550')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">4K Followers</p><p class="price">₹550</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '5K Profile Followers', '₹665')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">5K Followers</p><p class="price">₹665</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '6K Profile Followers', '₹770')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">6K Followers</p><p class="price">₹770</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '7K Profile Followers', '₹875')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">7K Followers</p><p class="price">₹875</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '8K Profile Followers', '₹965')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">8K Followers</p><p class="price">₹965</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '9K Profile Followers', '₹1,055')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">9K Followers</p><p class="price">₹1,055</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '10K Profile Followers', '₹1,130')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">10K Followers</p><p class="price">₹1,130</p></div>
+                </div>
+            </div>
+
+            <h3 class="section-title">Page Followers</h3>
+            <div class="diamond-grid">
+                <div class="diamond-card" onclick="selectPackage(this, '100 Page Followers', '₹40')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">100 Followers</p><p class="price">₹40</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '200 Page Followers', '₹55')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">200 Followers</p><p class="price">₹55</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '500 Page Followers', '₹95')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">500 Followers</p><p class="price">₹95</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '1K Page Followers', '₹170')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">1K Followers</p><p class="price">₹170</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '2K Page Followers', '₹310')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">2K Followers</p><p class="price">₹310</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '3K Page Followers', '₹445')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">3K Followers</p><p class="price">₹445</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '4K Page Followers', '₹570')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">4K Followers</p><p class="price">₹570</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '5K Page Followers', '₹685')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">5K Followers</p><p class="price">₹685</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '6K Page Followers', '₹790')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">6K Followers</p><p class="price">₹790</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '7K Page Followers', '₹895')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">7K Followers</p><p class="price">₹895</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '8K Page Followers', '₹985')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">8K Followers</p><p class="price">₹985</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '9K Page Followers', '₹1,075')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">9K Followers</p><p class="price">₹1,075</p></div>
+                </div>
+                <div class="diamond-card" onclick="selectPackage(this, '10K Page Followers', '₹1,150')">
+                    <img src="facebook-service.png" alt="Facebook">
+                    <div class="diamond-details"><p class="amount">10K Followers</p><p class="price">₹1,150</p></div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="checkout-section" style="margin-top: 30px;">
+            <button id="order-now-btn">Complete Order Now</button>
+        </section>
+    </main>
+
+    <script>
+        let selectedPackage = "";
+        let selectedPrice = "";
+
+        function selectPackage(card, packageName, price) {
+            // Remove highlight from ALL cards first
+            document.querySelectorAll('.diamond-card').forEach(c => c.classList.remove('selected'));
+            // Highlight the clicked card
+            card.classList.add('selected');
+            selectedPackage = packageName;
+            selectedPrice = price;
+        }
+
+        document.getElementById('order-now-btn').addEventListener('click', () => {
+            const fbLink = document.getElementById('fb-link').value.trim();
+
+            if (!fbLink) {
+                alert("Please enter your Facebook Link!");
+                return;
+            }
+
+            if (!selectedPackage) {
+                alert("Please select a package first!");
+                return;
+            }
+
+            // Save details to LocalStorage
+            localStorage.setItem("order_game", "Facebook Boost");
+            localStorage.setItem("order_playerId", fbLink); 
+            localStorage.setItem("order_zoneId", "N/A");       
+            localStorage.setItem("order_package", selectedPackage);
+            localStorage.setItem("order_price", selectedPrice);
+
+            window.location.href = "payment.html";
+        });
+    </script>
+</body>
+</html>
