@@ -587,23 +587,25 @@ nav .menu-bottom a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover; 
-    
-    background-color: #ffffff !important; /* Forces the background to be pure, bright white */
+    background-color: #ffffff !important; 
     border-radius: 8px; 
     border: 2px solid #00ffcc; 
     box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2); 
+    filter: none !important;  
+    opacity: 1 !important;    
     transition: all 0.3s ease;
     
-    /* THE FIX FOR THE DULL COLORS */
-    filter: none !important;  /* Instantly kills any hidden grayscale code */
-    opacity: 1 !important;    /* Forces the logos to be 100% solid and bright */
+    /* THE MAGNIFYING GLASS FIX */
+    transform: scale(1.6); /* Zooms the image in by 60% */
 }
 
 .payment-logo img:hover {
-    transform: scale(1.08); 
     box-shadow: 0 6px 20px rgba(0, 255, 204, 0.6); 
     filter: none !important;
     opacity: 1 !important;
+    
+    /* THE HOVER ZOOM */
+    transform: scale(1.8); /* Zooms in even further when touched */
 }
 
 
