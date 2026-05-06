@@ -156,11 +156,79 @@
         </div>
     </section>
 
-        <section id="live-purchase-bar">
-            <div id="purchase-notification">
-                <p><span id="buyer-name">User99</span> just bought <span id="item-bought">Weekly Diamond Pass</span>!</p>
-            </div>
-        </section>
+<style>
+        .live-notification-box {
+            background: rgba(0, 255, 204, 0.05);
+            border-left: 4px solid #00ffcc;
+            margin: 15px;
+            padding: 12px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+        }
+        .live-user {
+            color: #00ffcc;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .live-action {
+            color: rgba(255, 255, 255, 0.7);
+            margin-right: 5px;
+        }
+        .live-product {
+            color: #ffaa00; /* Gold color for the product to make it pop */
+            font-weight: bold;
+        }
+    </style>
+
+    <div class="live-notification-box">
+        <span class="live-user" id="toast-user">Sam_Official42</span>
+        <span class="live-action">just bought</span>
+        <span class="live-product" id="toast-product">a Weekly Pass</span>!
+    </div>
+
+    <script>
+        // List of random gamer/buyer names
+        const fakeUsernames = [
+            "Sam_Official42", "Rahul_OP", "Ninja_007", "Priya_Edits", 
+            "Vikram_YT", "Aman_Store", "Kabir_99", "Rohan_Gamer", 
+            "Sneha_Vlogs", "Akash_Pro", "King_Maker", "Dark_Knight"
+        ];
+        
+        // Your complete mixed list of products
+        const fakeProducts = [
+            "a Weekly Pass",
+            "Canva Pro (1 Month)",
+            "1K Instagram Followers",
+            "1K Facebook Followers",
+            "1K Telegram Members",
+            "1K WhatsApp Members",
+            "YouTube Premium (1 Month)",
+            "172 MLBB Diamonds",
+            "Premium Starlight",
+            "FanCode (1 Month)",
+            "Spotify Premium (1 Month)",
+            "BGMI 380 UC"
+        ];
+
+        function changeNotification() {
+            // Pick a random user and a random product from the lists above
+            const randomUser = fakeUsernames[Math.floor(Math.random() * fakeUsernames.length)];
+            const randomProduct = fakeProducts[Math.floor(Math.random() * fakeProducts.length)];
+            
+            // Update the text on the screen
+            document.getElementById('toast-user').textContent = randomUser;
+            document.getElementById('toast-product').textContent = randomProduct;
+        }
+
+        // Changes the notification every 3.5 seconds (3500 milliseconds)
+        setInterval(changeNotification, 3500);
+    </script>
+
+
+        
 
         <section id="games-section">
             <h2>Games</h2>
