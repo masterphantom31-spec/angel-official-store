@@ -586,19 +586,24 @@ nav .menu-bottom a:hover {
 .payment-logo img {
     width: 100%;
     height: 100%;
-    /* This is the magic line that cleanly slices the top and bottom off your square */
     object-fit: cover; 
     
-    background-color: #ffffff; /* Bright background just in case there are transparent gaps */
-    border-radius: 8px; /* Perfectly smooth, premium corners */
-    border: 2px solid #00ffcc; /* Bold, solid neon green border */
-    box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2); /* Subtle neon glow */
+    background-color: #ffffff !important; /* Forces the background to be pure, bright white */
+    border-radius: 8px; 
+    border: 2px solid #00ffcc; 
+    box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2); 
     transition: all 0.3s ease;
+    
+    /* THE FIX FOR THE DULL COLORS */
+    filter: none !important;  /* Instantly kills any hidden grayscale code */
+    opacity: 1 !important;    /* Forces the logos to be 100% solid and bright */
 }
 
 .payment-logo img:hover {
-    transform: scale(1.08); /* Smooth hover pop */
-    box-shadow: 0 6px 20px rgba(0, 255, 204, 0.6); /* Brighter glow on hover */
+    transform: scale(1.08); 
+    box-shadow: 0 6px 20px rgba(0, 255, 204, 0.6); 
+    filter: none !important;
+    opacity: 1 !important;
 }
 
 
