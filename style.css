@@ -637,3 +637,8 @@ nav .menu-bottom a:hover {
     color: #00E5FF; /* Pops to your signature neon green when touched */
     transform: translateX(5px); /* Adds a subtle, premium slide animation */
 }
+
+/* ================= LUXURY THEME OVERRIDE ================= */
+body, html {
+    background-color: #0D1117 !important;
+}
