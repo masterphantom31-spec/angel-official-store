@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Policies - Angel Official Store</title>
+    <link rel="stylesheet" href="style.css"> 
+    
+    <style>
+        .legal-section {
+            padding: 40px 20px;
+            max-width: 600px; /* Made slightly slimmer to look like mobile cards */
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+        }
+        .legal-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
+        .legal-header h1 {
+            color: #00ffcc; 
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        /* The Interactive Card Styling */
+        details {
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            border-radius: 12px;
+            margin-bottom: 20px; /* Space between the cards */
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        /* The Clickable Button Part */
+        summary {
+            padding: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            cursor: pointer;
+            list-style: none; /* Removes the default boring arrow */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::-webkit-details-marker {
+            display: none; /* Removes arrow on older iPhones */
+        }
+        summary:hover {
+            background: rgba(0, 255, 204, 0.05); /* Slight glow when touched */
+        }
+        
+        /* The Plus and Minus Icons */
+        summary::after {
+            content: '+';
+            color: #00ffcc;
+            font-size: 24px;
+            font-weight: normal;
+        }
+        details[open] summary::after {
+            content: '−'; /* Changes to minus when open */
+        }
+        
+        /* When the card is opened */
+        details[open] {
+            border-color: #00ffcc;
+            box-shadow: 0 4px 15px rgba(0, 255, 204, 0.15);
+        }
+        
+        /* The hidden text inside */
+        .policy-content {
+            padding: 0 20px 20px 20px;
+            color: #cccccc;
+            line-height: 1.6;
+            font-size: 15px;
+            border-top: 1px solid rgba(0, 255, 204, 0.1);
+            margin-top: 10px;
+            padding-top: 15px;
+        }
+
+        .back-btn-container {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+        .back-btn {
+            background: linear-gradient(90deg, #00ffcc, #00b38f);
+            color: #000000;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+        }
+        .back-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 255, 204, 0.4);
+        }
+    </style>
+</head>
+<body style="background-color: #0f0f0f;">
+
+    <div class="legal-section">
+        <div class="legal-header">
+            <h1>Store Policies</h1>
+            <p style="color: #888;">Tap a category to expand</p>
+        </div>
+
+        <details>
+            <summary>Terms & Conditions</summary>
+            <div class="policy-content">
+                <p>By using Angel Official Store to purchase digital assets, game top-ups, and OTT subscriptions, you agree to abide by these terms. We reserve the right to update these policies at any time to ensure the best service.</p>
+                <p>When purchasing pre-leveled game accounts, please verify all details before completing the transaction. Once the account login details are handed over and verified, the store is no longer responsible for the account's ongoing security.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Privacy Policy</summary>
+            <div class="policy-content">
+                <p>We take your privacy seriously. The player IDs, server numbers, and WhatsApp contact details you provide are used strictly for order fulfillment.</p>
+                <p>We accept secure, verified payments via UPI and trusted banking partners. Our support team will never ask for your bank passwords or OTPs.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Refund Policy</summary>
+            <div class="policy-content">
+                <p>Due to the irreversible nature of digital goods (diamonds, game accounts, and subscription activations), <strong>all sales are final</strong>.</p>
+                <p>Refunds are only issued in the rare event that we are completely unable to deliver the requested digital product within the agreed timeframe.</p>
+            </div>
+        </details>
+
+        <div class="back-btn-container">
+            <a href="index.html" class="back-btn">← Back to Store</a>
+        </div>
+    </div>
+
+</body>
+</html>
