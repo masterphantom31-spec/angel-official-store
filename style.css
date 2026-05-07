@@ -614,3 +614,26 @@ nav .menu-bottom a:hover {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); } 
 }
+
+/* ================= QUICK LINKS STYLING ================= */
+.footer-column ul {
+    list-style: none; /* Removes any bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Stacks them perfectly vertically */
+    gap: 12px; /* Adds professional breathing room between each link */
+}
+
+.footer-column a {
+    color: #cccccc; /* Changes ugly purple to a clean, premium gray */
+    text-decoration: none; /* Removes the cheap-looking underline */
+    font-size: 15px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-column a:hover {
+    color: #00ffcc; /* Pops to your signature neon green when touched */
+    transform: translateX(5px); /* Adds a subtle, premium slide animation */
+}
