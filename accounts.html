@@ -166,13 +166,22 @@
 
         <div id="sell-section" class="form-section">
             <label class="form-label">Select Game</label>
-            <select id="sell-game" class="form-input">
+            <select id="sell-game" class="form-input" onchange="checkMLStatus()">
                 <option value="Mobile Legends">Mobile Legends (MLBB)</option>
                 <option value="BGMI">BGMI / PUBG</option>
                 <option value="Free Fire">Free Fire</option>
                 <option value="Genshin Impact">Genshin Impact</option>
                 <option value="Clash of Clans">Clash of Clans</option>
             </select>
+
+            <div id="ml-bind-box" style="display: block;">
+                <label class="form-label">Account Bind Status</label>
+                <select id="sell-ml-bind" class="form-input">
+                    <option value="Revendable & Clean">Revendable & Clean</option>
+                    <option value="Non-Revendable">Non-Revendable</option>
+                    <option value="Non-Clean">Non-Clean</option>
+                </select>
+            </div>
 
             <label class="form-label">Expected Amount (₹)</label>
             <input type="number" id="sell-amount" class="form-input" placeholder="How much do you want for it?">
@@ -186,27 +195,37 @@
     <script>
         // Function to switch between Buy and Sell tabs
         function switchTab(tab) {
-            // Reset buttons
             document.getElementById('btn-buy').classList.remove('active');
             document.getElementById('btn-sell').classList.remove('active');
-            // Hide all sections
             document.getElementById('buy-section').classList.remove('active-section');
             document.getElementById('sell-section').classList.remove('active-section');
 
-            // Activate the clicked one
             if (tab === 'buy') {
                 document.getElementById('btn-buy').classList.add('active');
                 document.getElementById('buy-section').classList.add('active-section');
             } else {
                 document.getElementById('btn-sell').classList.add('active');
                 document.getElementById('sell-section').classList.add('active-section');
+                checkMLStatus(); // Double check if MLBB is selected when they open the tab
+            }
+        }
+
+        // Function to hide/show the MLBB Bind Status box
+        function checkMLStatus() {
+            const game = document.getElementById('sell-game').value;
+            const mlBox = document.getElementById('ml-bind-box');
+            
+            if (game === 'Mobile Legends') {
+                mlBox.style.display = 'block'; // Show it
+            } else {
+                mlBox.style.display = 'none'; // Hide it for other games
             }
         }
 
         // Function to build the WhatsApp message and redirect
         function sendToWhatsApp(type) {
-            // PUT YOUR WHATSAPP NUMBER HERE (Include Country Code, no + symbol)
-            const myWhatsAppNumber = "911234567890"; 
+            // YOUR REAL WHATSAPP NUMBER
+            const myWhatsAppNumber = "919383300728"; 
             
             let finalMessage = "";
 
@@ -220,7 +239,14 @@
                 const game = document.getElementById('sell-game').value;
                 const amount = document.getElementById('sell-amount').value;
                 
-                finalMessage = `Hello Angel Official Store! 🚀%0A%0AI am looking to *SELL* an account.%0A%0A🎮 *Game:* ${game}%0A💰 *Expected Amount:* ₹${amount}`;
+                // Smart check to add the Bind Status to the message ONLY if it's MLBB
+                let extraInfo = "";
+                if (game === 'Mobile Legends') {
+                    const bindStatus = document.getElementById('sell-ml-bind').value;
+                    extraInfo = `%0A🔐 *Bind Status:* ${bindStatus}`;
+                }
+                
+                finalMessage = `Hello Angel Official Store! 🚀%0A%0AI am looking to *SELL* an account.%0A%0A🎮 *Game:* ${game}${extraInfo}%0A💰 *Expected Amount:* ₹${amount}`;
             }
 
             // Redirect user to WhatsApp
