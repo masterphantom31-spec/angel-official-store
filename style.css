@@ -31,7 +31,7 @@ header {
     font-size: 24px;
     cursor: pointer;
     margin-right: 15px;
-    color: #00ffcc; /* Premium neon accent */
+    color: #00E5FF; /* Premium neon accent */
 }
 
 header h1 {
@@ -41,7 +41,7 @@ header h1 {
     letter-spacing: 1.5px;
     margin: 0;
     text-transform: uppercase;
-    background: linear-gradient(90deg, #ffffff 0%, #00ffcc 100%);
+    background: linear-gradient(90deg, #ffffff 0%, #00E5FF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0px 4px 20px rgba(0, 255, 204, 0.3);
@@ -81,7 +81,7 @@ header h1 {
 }
 
 #side-menu ul li:hover {
-    color: #00ffcc;
+    color: #00E5FF;
     padding-left: 10px;
 }
 
@@ -109,7 +109,7 @@ header h1 {
 /* --- Fake Live Purchase Bar --- */
 #live-purchase-bar {
     background: linear-gradient(90deg, rgba(0, 255, 204, 0.1), rgba(0, 0, 0, 0));
-    border-left: 4px solid #00ffcc;
+    border-left: 4px solid #00E5FF;
     margin: 20px 10px;
     padding: 10px 15px;
     border-radius: 4px;
@@ -118,7 +118,7 @@ header h1 {
 
 #buyer-name {
     font-weight: bold;
-    color: #00ffcc;
+    color: #00E5FF;
 }
 
 #item-bought {
@@ -160,7 +160,7 @@ h2 {
     background: rgba(255, 255, 255, 0.08);
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 255, 204, 0.1);
-    border-color: #00ffcc;
+    border-color: #00E5FF;
 }
 
 .icon-card img {
@@ -223,7 +223,7 @@ h2 {
 }
 
 .input-group input:focus {
-    border-color: #00ffcc;
+    border-color: #00E5FF;
     box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
 }
 
@@ -248,7 +248,7 @@ h2 {
 }
 
 .diamond-card:hover {
-    border-color: #00ffcc;
+    border-color: #00E5FF;
     background: rgba(0, 255, 204, 0.05);
 }
 
@@ -263,7 +263,7 @@ h2 {
 }
 
 .diamond-details .price {
-    color: #00ffcc;
+    color: #00E5FF;
     font-size: 13px;
     margin-top: 3px;
 }
@@ -276,7 +276,7 @@ h2 {
 }
 
 #order-now-btn {
-    background: linear-gradient(45deg, #00ffcc, #00b38f);
+    background: linear-gradient(45deg, #00E5FF, #00b38f);
     color: #000;
     border: none;
     padding: 15px 40px;
@@ -323,8 +323,8 @@ h2 {
 
 .category-btn.active, .category-btn:hover {
     background: rgba(0, 255, 204, 0.15);
-    border-color: #00ffcc;
-    color: #00ffcc;
+    border-color: #00E5FF;
+    color: #00E5FF;
     box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
 }
 
@@ -344,7 +344,7 @@ h2 {
 }
 
 .summary-card h3 {
-    color: #00ffcc;
+    color: #00E5FF;
     font-size: 22px;
     margin-top: 10px;
 }
@@ -365,7 +365,7 @@ h2 {
     max-width: 200px;
     width: 100%;
     border-radius: 10px;
-    border: 3px solid #00ffcc;
+    border: 3px solid #00E5FF;
     box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
     margin: 15px 0;
 }
@@ -434,7 +434,7 @@ img[src*="whatsapp"] {
     box-shadow: 0px 0px 25px rgba(0, 255, 170, 0.25) !important; 
     
     /* Adds a sleek, dark glass background behind the moving images */
-    background-color: rgba(20, 20, 20, 0.6) !important; 
+    background-color: rgba(22, 27, 34 0.6) !important; 
     
     /* Adds a tiny, premium glass reflection border */
     border: 1px solid rgba(255, 255, 255, 0.08) !important; 
@@ -514,7 +514,7 @@ nav ul.menu-top li a {
 /* Premium tap animation */
 nav ul.menu-top li a:hover, nav ul.menu-top li a:active {
     background: rgba(0, 255, 204, 0.1) !important;
-    color: #00ffcc !important;
+    color: #00E5FF !important;
     padding-left: 32px !important; 
 }
 
@@ -536,7 +536,7 @@ nav .menu-bottom a {
 }
 
 nav .menu-bottom a:hover {
-    color: #00ffcc !important;
+    color: #00E5FF !important;
 }
 
 /* ================= PAYMENT METHODS MARQUEE ================= */
@@ -589,7 +589,7 @@ nav .menu-bottom a:hover {
     object-fit: cover; 
     background-color: #ffffff !important; 
     border-radius: 8px; 
-    border: 2px solid #00ffcc; 
+    border: 2px solid #00E5FF; 
     box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2); 
     filter: none !important;  
     opacity: 1 !important;    
@@ -634,6 +634,6 @@ nav .menu-bottom a:hover {
 }
 
 .footer-column a:hover {
-    color: #00ffcc; /* Pops to your signature neon green when touched */
+    color: #00E5FF; /* Pops to your signature neon green when touched */
     transform: translateX(5px); /* Adds a subtle, premium slide animation */
 }
