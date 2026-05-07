@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Hub - Angel Official Store</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .hub-container {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+        }
+        
+        .hub-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .hub-header h1 {
+            color: #00E5FF; /* Ice Cyan */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 26px;
+        }
+
+        /* The Premium Toggle Switch */
+        .toggle-box {
+            display: flex;
+            background: rgba(22, 27, 34, 1);
+            border-radius: 12px;
+            padding: 5px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+        }
+        .toggle-btn {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            color: #888;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .toggle-btn.active {
+            background: rgba(0, 229, 255, 0.1);
+            color: #00E5FF;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+        }
+
+        /* The Forms */
+        .form-section {
+            display: none; /* Hides them by default */
+            background: rgba(22, 27, 34, 1);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .form-section.active-section {
+            display: block; /* Shows the active one */
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #cccccc;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            background: rgba(13, 17, 23, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        .form-input:focus {
+            border-color: #00E5FF;
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+        }
+
+        /* The WhatsApp Checkout Button */
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(90deg, #00E5FF, #007BFF);
+            color: #000000;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 10px;
+        }
+        .checkout-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.4);
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: #00E5FF;
+        }
+    </style>
+</head>
+<body style="background-color: #0D1117;">
+
+    <div class="hub-container">
+        <div class="hub-header">
+            <h1>Account Hub</h1>
+            <p style="color: #888;">Trade premium gaming accounts securely</p>
+        </div>
+
+        <div class="toggle-box">
+            <button id="btn-buy" class="toggle-btn active" onclick="switchTab('buy')">Buy Account</button>
+            <button id="btn-sell" class="toggle-btn" onclick="switchTab('sell')">Sell Account</button>
+        </div>
+
+        <div id="buy-section" class="form-section active-section">
+            <label class="form-label">Select Game</label>
+            <select id="buy-game" class="form-input">
+                <option value="Mobile Legends">Mobile Legends (MLBB)</option>
+                <option value="BGMI">BGMI / PUBG</option>
+                <option value="Free Fire">Free Fire</option>
+                <option value="Genshin Impact">Genshin Impact</option>
+                <option value="Clash of Clans">Clash of Clans</option>
+            </select>
+
+            <label class="form-label">Max Budget (₹)</label>
+            <input type="number" id="buy-budget" class="form-input" placeholder="e.g. 5000">
+
+            <label class="form-label">Specific Requirements</label>
+            <textarea id="buy-req" class="form-input" rows="3" placeholder="I need specific skins, heroes, mythic rank, etc..."></textarea>
+
+            <button class="checkout-btn" onclick="sendToWhatsApp('buy')">Proceed to Checkout</button>
+        </div>
+
+        <div id="sell-section" class="form-section">
+            <label class="form-label">Select Game</label>
+            <select id="sell-game" class="form-input">
+                <option value="Mobile Legends">Mobile Legends (MLBB)</option>
+                <option value="BGMI">BGMI / PUBG</option>
+                <option value="Free Fire">Free Fire</option>
+                <option value="Genshin Impact">Genshin Impact</option>
+                <option value="Clash of Clans">Clash of Clans</option>
+            </select>
+
+            <label class="form-label">Expected Amount (₹)</label>
+            <input type="number" id="sell-amount" class="form-input" placeholder="How much do you want for it?">
+
+            <button class="checkout-btn" onclick="sendToWhatsApp('sell')">Proceed to Checkout</button>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to Store</a>
+    </div>
+
+    <script>
+        // Function to switch between Buy and Sell tabs
+        function switchTab(tab) {
+            // Reset buttons
+            document.getElementById('btn-buy').classList.remove('active');
+            document.getElementById('btn-sell').classList.remove('active');
+            // Hide all sections
+            document.getElementById('buy-section').classList.remove('active-section');
+            document.getElementById('sell-section').classList.remove('active-section');
+
+            // Activate the clicked one
+            if (tab === 'buy') {
+                document.getElementById('btn-buy').classList.add('active');
+                document.getElementById('buy-section').classList.add('active-section');
+            } else {
+                document.getElementById('btn-sell').classList.add('active');
+                document.getElementById('sell-section').classList.add('active-section');
+            }
+        }
+
+        // Function to build the WhatsApp message and redirect
+        function sendToWhatsApp(type) {
+            // PUT YOUR WHATSAPP NUMBER HERE (Include Country Code, no + symbol)
+            const myWhatsAppNumber = "911234567890"; 
+            
+            let finalMessage = "";
+
+            if (type === 'buy') {
+                const game = document.getElementById('buy-game').value;
+                const budget = document.getElementById('buy-budget').value;
+                const req = document.getElementById('buy-req').value;
+                
+                finalMessage = `Hello Angel Official Store! 🚀%0A%0AI am looking to *BUY* an account.%0A%0A🎮 *Game:* ${game}%0A💰 *Max Budget:* ₹${budget}%0A📝 *Requirements:* ${req}`;
+            } else {
+                const game = document.getElementById('sell-game').value;
+                const amount = document.getElementById('sell-amount').value;
+                
+                finalMessage = `Hello Angel Official Store! 🚀%0A%0AI am looking to *SELL* an account.%0A%0A🎮 *Game:* ${game}%0A💰 *Expected Amount:* ₹${amount}`;
+            }
+
+            // Redirect user to WhatsApp
+            const whatsappLink = `https://wa.me/${myWhatsAppNumber}?text=${finalMessage}`;
+            window.location.href = whatsappLink;
+        }
+    </script>
+
+</body>
+</html>
